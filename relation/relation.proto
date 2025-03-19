@@ -21,11 +21,11 @@ import "wrapperspb/wrapperspb.proto";
 option go_package = "github.com/SupersStone/serverpros/relation";
 
 message getPaginationFriendsReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string userID = 2;
 }
 message getPaginationFriendsResp {
-  repeated openim.sdkws.FriendInfo friendsInfo = 1;
+  repeated openim.contactws.FriendInfo friendsInfo = 1;
   int32 total = 2;
 }
 
@@ -59,10 +59,10 @@ message importFriendResp {}
 
 message getPaginationFriendsApplyToReq {
   string userID = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.contactws.RequestPagination pagination = 2;
 }
 message getPaginationFriendsApplyToResp {
-  repeated openim.sdkws.FriendRequest FriendRequests = 1;
+  repeated openim.contactws.FriendRequest FriendRequests = 1;
   int32 total = 2;
 }
 
@@ -72,7 +72,7 @@ message getDesignatedFriendsApplyReq {
 }
 
 message getDesignatedFriendsApplyResp {
-  repeated openim.sdkws.FriendRequest friendRequests = 1;
+  repeated openim.contactws.FriendRequest friendRequests = 1;
 }
 
 message getIncrementalFriendsApplyToReq {
@@ -85,7 +85,7 @@ message getIncrementalFriendsApplyToResp {
   string versionID = 2;
   bool full = 3;
   repeated string deleteUserIds = 4;
-  repeated openim.sdkws.FriendRequest changes = 5;
+  repeated openim.contactws.FriendRequest changes = 5;
 }
 
 message getIncrementalFriendsApplyFromReq {
@@ -98,7 +98,7 @@ message getIncrementalFriendsApplyFromResp {
   string versionID = 2;
   bool full = 3;
   repeated string deleteUserIds = 4;
-  repeated openim.sdkws.FriendRequest changes = 5;
+  repeated openim.contactws.FriendRequest changes = 5;
 }
 
 message getDesignatedFriendsReq {
@@ -106,7 +106,7 @@ message getDesignatedFriendsReq {
   repeated string friendUserIDs = 2;
 }
 message getDesignatedFriendsResp {
-  repeated openim.sdkws.FriendInfo friendsInfo = 1;
+  repeated openim.contactws.FriendInfo friendsInfo = 1;
 }
 
 message addBlackReq {
@@ -124,10 +124,10 @@ message removeBlackResp {}
 
 message getPaginationBlacksReq {
   string userID = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.contactws.RequestPagination pagination = 2;
 }
 message getPaginationBlacksResp {
-  repeated openim.sdkws.BlackInfo blacks = 1;
+  repeated openim.contactws.BlackInfo blacks = 1;
   int32 total = 2;
 }
 
@@ -183,10 +183,10 @@ message setFriendRemarkResp {}
 
 message getPaginationFriendsApplyFromReq {
   string userID = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.contactws.RequestPagination pagination = 2;
 }
 message getPaginationFriendsApplyFromResp {
-  repeated openim.sdkws.FriendRequest friendRequests = 1;
+  repeated openim.contactws.FriendRequest friendRequests = 1;
   int32 total = 2;
 }
 
@@ -204,9 +204,9 @@ message getSpecifiedFriendsInfoReq {
 }
 
 message getSpecifiedFriendsInfoInfo {
-  openim.sdkws.UserInfo userInfo = 1;
-  openim.sdkws.FriendInfo friendInfo = 2;
-  openim.sdkws.BlackInfo blackInfo = 3;
+  openim.contactws.UserInfo userInfo = 1;
+  openim.contactws.FriendInfo friendInfo = 2;
+  openim.contactws.BlackInfo blackInfo = 3;
 }
 
 message getSpecifiedFriendsInfoResp {
@@ -224,8 +224,8 @@ message getIncrementalFriendsResp {
   string versionID = 2;
   bool full = 3;
   repeated string delete = 4;
-  repeated openim.sdkws.FriendInfo insert = 5;
-  repeated openim.sdkws.FriendInfo update = 6;
+  repeated openim.contactws.FriendInfo insert = 5;
+  repeated openim.contactws.FriendInfo update = 6;
   uint64 sortVersion = 7;
 }
 
@@ -239,8 +239,8 @@ message getIncrementalBlacksResp {
   string versionID = 2;
   bool full = 3;
   repeated string delete = 4;
-  repeated openim.sdkws.BlackInfo insert = 5;
-  repeated openim.sdkws.BlackInfo update = 6;
+  repeated openim.contactws.BlackInfo insert = 5;
+  repeated openim.contactws.BlackInfo update = 6;
 }
 
 message GetSpecifiedBlacksReq {
@@ -249,7 +249,7 @@ message GetSpecifiedBlacksReq {
 }
 
 message GetSpecifiedBlacksResp {
-  repeated openim.sdkws.BlackInfo blacks = 1;
+  repeated openim.contactws.BlackInfo blacks = 1;
   int32 total = 2;
 }
 
@@ -267,8 +267,8 @@ message getFullFriendUserIDsResp {
 
 message notificationUserInfoUpdateReq {
   string userID = 1;
-  openim.sdkws.UserInfo oldUserInfo = 2;
-  openim.sdkws.UserInfo newUserInfo = 3;
+  openim.contactws.UserInfo oldUserInfo = 2;
+  openim.contactws.UserInfo newUserInfo = 3;
 }
 
 message notificationUserInfoUpdateResp {}

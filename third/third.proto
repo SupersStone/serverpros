@@ -187,7 +187,7 @@ message SearchLogsReq {
   string keyword = 1;
   int64 startTime = 2;
   int64 endTime = 3;
-  sdkws.RequestPagination pagination = 4;
+  openim.contactws.RequestPagination pagination = 4;
 }
 
 message LogInfo {

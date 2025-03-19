@@ -38,6 +38,7 @@ message Conversation {
   int64 msgDestructTime = 15;
   int64 latestMsgDestructTime = 16;
   bool isMsgDestruct = 17;
+  int64 msgDestructStartTime = 18;
 }
 
 message ConversationReq {
@@ -76,7 +77,7 @@ message GetConversationResp {
 message GetSortedConversationListReq {
   string userID = 1;
   repeated string conversationIDs = 2;
-  sdkws.RequestPagination pagination = 3;
+  openim.contactws.RequestPagination pagination = 3;
 }
 
 message GetSortedConversationListResp {
@@ -266,7 +267,7 @@ message GetIncrementalConversationResp {
 
 message GetOwnerConversationReq {
   string userID = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.contactws.RequestPagination pagination = 2;
 }
 
 message GetOwnerConversationResp {

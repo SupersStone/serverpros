@@ -4,9 +4,9 @@ import "sdkws/sdkws.proto";
 option go_package = "github.com/SupersStone/serverpros/rtc";
 
 message ParticipantMetaData{
-  openim.sdkws.GroupInfo groupInfo = 1;
-  openim.sdkws.GroupMemberFullInfo groupMemberInfo = 2;
-  openim.sdkws.PublicUserInfo userInfo = 3;
+  openim.contactws.GroupInfo groupInfo = 1;
+  openim.contactws.GroupMemberFullInfo groupMemberInfo = 2;
+  openim.contactws.PublicUserInfo userInfo = 3;
 }
 
 message GetJoinTokenReq{
@@ -75,7 +75,7 @@ message InvitationInfo  {
 
 message SignalInviteReq {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo  = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo  = 2;
   ParticipantMetaData participant = 3;
   string userID = 4;
 }
@@ -89,7 +89,7 @@ message SignalInviteResp {
 
 message SignalInviteInGroupReq {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo  = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo  = 2;
   ParticipantMetaData participant = 3;
   string userID = 4;
 }
@@ -103,7 +103,7 @@ message SignalInviteInGroupResp {
 
 message SignalCancelReq {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo  = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo  = 2;
   ParticipantMetaData participant = 3;
   string userID = 4;
 }
@@ -114,7 +114,7 @@ message SignalCancelResp {
 
 message SignalAcceptReq {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo  = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo  = 2;
   ParticipantMetaData participant = 3;
   int32 opUserPlatformID = 4;
   string userID = 5;
@@ -128,7 +128,7 @@ message SignalAcceptResp {
 
 message SignalHungUpReq {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo  = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo  = 2;
   string userID = 3;
 }
 
@@ -139,7 +139,7 @@ message SignalHungUpResp {
 
 message SignalRejectReq {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo  = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo  = 2;
   ParticipantMetaData participant = 3;
   int32 opUserPlatformID = 4;
   string userID = 5;
@@ -205,7 +205,7 @@ message GetSignalInvitationInfoReq {
 
 message GetSignalInvitationInfoResp {
   InvitationInfo invitationInfo = 1;
-  sdkws.OfflinePushInfo offlinePushInfo = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo = 2;
 }
 
 message GetSignalInvitationInfoStartAppReq {
@@ -214,7 +214,7 @@ message GetSignalInvitationInfoStartAppReq {
 
 message GetSignalInvitationInfoStartAppResp {
   InvitationInfo invitation = 1;
-  sdkws.OfflinePushInfo offlinePushInfo = 2;
+  openim.contactws.OfflinePushInfo offlinePushInfo = 2;
 }
 
 message SignalUser {
@@ -246,13 +246,13 @@ message FileRecord {
 }
 
 message GetSignalInvitationRecordsReq {
-  sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   int32 sessionType = 2;
   string sendID = 3;
   string recvID = 4;
   int64 startTime = 5;
   int64 endTime = 6;
-  repeated sdkws.UserInfo JoinedUsers = 7;
+  repeated openim.contactws.UserInfo JoinedUsers = 7;
 }
 
 message GetSignalInvitationRecordsResp {

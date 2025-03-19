@@ -20,7 +20,7 @@ import "sdkws/sdkws.proto";
 option go_package = "github.com/SupersStone/serverpros/push";
 
 message PushMsgReq {
-  sdkws.MsgData msgData = 1;
+  openim.contactws.MsgData msgData = 1;
   string conversationID = 2;
   repeated string userIDs = 3;
 }

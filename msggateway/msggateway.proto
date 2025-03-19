@@ -20,7 +20,7 @@ import "sdkws/sdkws.proto";
 option go_package = "github.com/SupersStone/serverpros/msggateway";
 
 message OnlinePushMsgReq {
-  sdkws.MsgData msgData = 1;
+  openim.contactws.MsgData msgData = 1;
   string pushToUserID = 2;
 }
 
@@ -34,7 +34,7 @@ message SingleMsgToUserResults {
   bool onlinePush = 3;
 }
 message OnlineBatchPushOneMsgReq {
-  sdkws.MsgData msgData = 1;
+  openim.contactws.MsgData msgData = 1;
   repeated string pushToUserIDs = 2;
 }
 

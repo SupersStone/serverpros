@@ -22,23 +22,23 @@ option go_package = "github.com/SupersStone/serverpros/group";
 
 message CreateGroupReq {
   repeated string memberUserIDs = 1;
-  openim.sdkws.GroupInfo groupInfo = 2;
+  openim.contactws.GroupInfo groupInfo = 2;
   repeated string adminUserIDs = 3;
   string ownerUserID = 4; //owner
 }
 message CreateGroupResp {
-  openim.sdkws.GroupInfo groupInfo = 1;
+  openim.contactws.GroupInfo groupInfo = 1;
 }
 
 message GetGroupsInfoReq {
   repeated string groupIDs = 1;
 }
 message GetGroupsInfoResp {
-  repeated openim.sdkws.GroupInfo groupInfos = 1;
+  repeated openim.contactws.GroupInfo groupInfos = 1;
 }
 
 message SetGroupInfoReq {
-  openim.sdkws.GroupInfoForSet groupInfoForSet = 1;
+  openim.contactws.GroupInfoForSet groupInfoForSet = 1;
 }
 message SetGroupInfoResp {}
 
@@ -56,22 +56,22 @@ message SetGroupInfoExReq {
 message SetGroupInfoExResp {}
 
 message GetGroupApplicationListReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string fromUserID = 2; //owner or admin
 }
 message GetGroupApplicationListResp {
   uint32 total = 1;
-  repeated openim.sdkws.GroupRequest groupRequests = 2;
+  repeated openim.contactws.GroupRequest groupRequests = 2;
 }
 
 message GetUserReqApplicationListReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string userID = 2;
 }
 
 message GetUserReqApplicationListResp {
   uint32 total = 1;
-  repeated openim.sdkws.GroupRequest groupRequests = 2;
+  repeated openim.contactws.GroupRequest groupRequests = 2;
 }
 
 message GetSpecifiedUserGroupRequestInfoReq {
@@ -81,7 +81,7 @@ message GetSpecifiedUserGroupRequestInfoReq {
 
 message GetSpecifiedUserGroupRequestInfoResp {
   uint32 total = 1;
-  repeated openim.sdkws.GroupRequest groupRequests = 2;
+  repeated openim.contactws.GroupRequest groupRequests = 2;
 }
 
 message TransferGroupOwnerReq {
@@ -115,7 +115,7 @@ message QuitGroupReq {
 message QuitGroupResp {}
 
 message GetGroupMemberListReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string groupID = 2;
   int32 filter = 3;
   string keyword = 4;
@@ -123,7 +123,7 @@ message GetGroupMemberListReq {
 
 message GetGroupMemberListResp {
   uint32 total = 1;
-  repeated openim.sdkws.GroupMemberFullInfo members = 2;
+  repeated openim.contactws.GroupMemberFullInfo members = 2;
 }
 
 message GetGroupMembersInfoReq {
@@ -132,7 +132,7 @@ message GetGroupMembersInfoReq {
 }
 
 message GetGroupMembersInfoResp {
-  repeated openim.sdkws.GroupMemberFullInfo members = 1;
+  repeated openim.contactws.GroupMemberFullInfo members = 1;
 }
 
 message KickGroupMemberReq {
@@ -144,12 +144,12 @@ message KickGroupMemberReq {
 message KickGroupMemberResp {}
 
 message GetJoinedGroupListReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string fromUserID = 2;
 }
 message GetJoinedGroupListResp {
   uint32 total = 1;
-  repeated openim.sdkws.GroupInfo groups = 2;
+  repeated openim.contactws.GroupInfo groups = 2;
 }
 
 message InviteUserToGroupReq {
@@ -160,21 +160,21 @@ message InviteUserToGroupReq {
 message InviteUserToGroupResp {}
 
 message GetGroupAllMemberReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string groupID = 2;
 }
 message GetGroupAllMemberResp {
-  repeated openim.sdkws.GroupMemberFullInfo members = 1;
+  repeated openim.contactws.GroupMemberFullInfo members = 1;
 }
 
 message CMSGroup {
-  openim.sdkws.GroupInfo groupInfo = 1;
+  openim.contactws.GroupInfo groupInfo = 1;
   string groupOwnerUserName = 2;
   string groupOwnerUserID = 3;
 }
 
 message GetGroupsReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string groupName = 2;
   string groupID = 3;
 }
@@ -189,14 +189,14 @@ message GetGroupMemberReq {
 }
 
 message GetGroupMembersCMSReq {
-  openim.sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
   string groupID = 2;
   string userName = 3;
 }
 
 message GetGroupMembersCMSResp {
   uint32 total = 1;
-  repeated openim.sdkws.GroupMemberFullInfo members = 2;
+  repeated openim.contactws.GroupMemberFullInfo members = 2;
 }
 
 message DismissGroupReq {
@@ -268,7 +268,7 @@ message GetUserInGroupMembersReq {
 }
 
 message GetUserInGroupMembersResp {
-  repeated openim.sdkws.GroupMemberFullInfo members = 1;
+  repeated openim.contactws.GroupMemberFullInfo members = 1;
 }
 
 message GetGroupMemberUserIDsReq {
@@ -285,7 +285,7 @@ message GetGroupMemberRoleLevelReq {
 }
 
 message GetGroupMemberRoleLevelResp {
-  repeated openim.sdkws.GroupMemberFullInfo members = 1;
+  repeated openim.contactws.GroupMemberFullInfo members = 1;
 }
 
 message GetGroupInfoCacheReq {
@@ -293,7 +293,7 @@ message GetGroupInfoCacheReq {
 }
 
 message GetGroupInfoCacheResp {
-  openim.sdkws.GroupInfo groupInfo = 1;
+  openim.contactws.GroupInfo groupInfo = 1;
 }
 
 message GetGroupMemberCacheReq {
@@ -302,7 +302,7 @@ message GetGroupMemberCacheReq {
 }
 
 message GetGroupMemberCacheResp {
-  openim.sdkws.GroupMemberFullInfo member = 1;
+  openim.contactws.GroupMemberFullInfo member = 1;
 }
 
 message GroupCreateCountReq {
@@ -323,13 +323,13 @@ message getGroupUsersReqApplicationListReq {
 
 message getGroupUsersReqApplicationListResp {
   int64 total = 1;
-  repeated openim.sdkws.GroupRequest groupRequests = 2;
+  repeated openim.contactws.GroupRequest groupRequests = 2;
 }
 
 message notificationUserInfoUpdateReq {
   string userID = 1;
-  openim.sdkws.UserInfo oldUserInfo = 2;
-  openim.sdkws.UserInfo newUserInfo = 3;
+  openim.contactws.UserInfo oldUserInfo = 2;
+  openim.contactws.UserInfo newUserInfo = 3;
 }
 
 message notificationUserInfoUpdateResp {}
@@ -345,9 +345,9 @@ message getIncrementalGroupMemberResp {
   string versionID = 2;
   bool full = 3;
   repeated string delete = 4;
-  repeated openim.sdkws.GroupMemberFullInfo insert = 5;
-  repeated openim.sdkws.GroupMemberFullInfo update = 6;
-  openim.sdkws.GroupInfo group = 7;
+  repeated openim.contactws.GroupMemberFullInfo insert = 5;
+  repeated openim.contactws.GroupMemberFullInfo update = 6;
+  openim.contactws.GroupInfo group = 7;
   uint64 sortVersion = 8;
 }
 
@@ -362,8 +362,8 @@ message getIncrementalJoinGroupResp {
   string versionID = 2;
   bool full = 3;
   repeated string delete = 4;
-  repeated openim.sdkws.GroupInfo insert = 5;
-  repeated openim.sdkws.GroupInfo update = 6;
+  repeated openim.contactws.GroupInfo insert = 5;
+  repeated openim.contactws.GroupInfo update = 6;
   uint64 sortVersion = 7;
 }
 

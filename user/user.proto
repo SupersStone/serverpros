@@ -22,7 +22,7 @@ import "wrapperspb/wrapperspb.proto";
 option go_package = "github.com/SupersStone/serverpros/user";
 
 message getAllUserIDReq {
-  sdkws.RequestPagination pagination = 1;
+  openim.contactws.RequestPagination pagination = 1;
 }
 message getAllUserIDResp {
   int32 total = 1;
@@ -44,15 +44,15 @@ message getDesignateUsersReq {
   repeated string userIDs = 1;
 }
 message getDesignateUsersResp {
-  repeated sdkws.UserInfo usersInfo = 1;
+  repeated openim.contactws.UserInfo usersInfo = 1;
 }
 
 message updateUserInfoReq {
-  sdkws.UserInfo userInfo = 1;
+  openim.contactws.UserInfo userInfo = 1;
 }
 message updateUserInfoResp {}
 message updateUserInfoExReq {
-  sdkws.UserInfoWithEx userInfo = 1;
+  openim.contactws.UserInfoWithEx userInfo = 1;
 }
 message updateUserInfoExResp {}
 message setGlobalRecvMessageOptReq {
@@ -122,18 +122,18 @@ message batchSetConversationsResp {
 }
 
 message getPaginationUsersReq {
-  sdkws.RequestPagination pagination = 2;
+  openim.contactws.RequestPagination pagination = 2;
   string userID = 3;
   string nickName = 4;
 }
 
 message getPaginationUsersResp {
   int32 total = 1;
-  repeated sdkws.UserInfo users = 2;
+  repeated openim.contactws.UserInfo users = 2;
 }
 
 message userRegisterReq {
-  repeated sdkws.UserInfo users = 1;
+  repeated openim.contactws.UserInfo users = 1;
 }
 message userRegisterResp {}
 
@@ -293,7 +293,7 @@ message updateNotificationAccountInfoResp {}
 
 message searchNotificationAccountReq {
   string keyword = 1;
-  sdkws.RequestPagination pagination = 3;
+  openim.contactws.RequestPagination pagination = 3;
 }
 
 message notificationAccountInfo {
@@ -319,7 +319,7 @@ message sortQueryReq {
 }
 
 message sortQueryResp {
-  repeated sdkws.UserInfo users = 2;
+  repeated openim.contactws.UserInfo users = 2;
 }
 
 message getAllOnlineUsersReq {

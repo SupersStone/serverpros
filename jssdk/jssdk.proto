@@ -24,10 +24,10 @@ option go_package = "github.com/SupersStone/serverpros/jssdk";
 
 message ConversationMsg {
   conversation.Conversation conversation = 1;
-  sdkws.MsgData lastMsg = 2;
-  sdkws.UserInfo user = 3;
+  contactws.MsgData lastMsg = 2;
+  contactws.UserInfo user = 3;
   relation.FriendInfoOnly friend = 4;
-  sdkws.GroupInfo group = 5;
+  contactws.GroupInfo group = 5;
   int64 maxSeq = 6;
   int64 readSeq = 7;
 }

@@ -31,7 +31,19 @@ PROTO_NAMES=(
 )
 
 for name in "${PROTO_NAMES[@]}"; do
-  protoc --go_out=plugins=grpc:./${name} --go_opt=module=github.com/SupersStone/serverpros/${name} ${name}/${name}.proto
+  # 获取proto文件中定义的go_package
+  go_package=$(grep "option go_package" ${name}/${name}.proto | cut -d'"' -f2 | cut -d';' -f1)
+  
+  if [ -z "$go_package" ]; then
+    # 如果没有找到go_package，使用默认值
+    module_opt="--go_opt=module=github.com/SupersStone/serverpros/${name} --go-grpc_opt=module=github.com/SupersStone/serverpros/${name}"
+  else
+    # 如果找到go_package，使用它作为模块路径
+    module=$(basename "$go_package")
+    module_opt="--go_opt=module=${go_package} --go-grpc_opt=module=${go_package}"
+  fi
+  
+  protoc --go_out=./${name} ${module_opt} --go-grpc_out=./${name} ${name}/${name}.proto
   if [ $? -ne 0 ]; then
       echo "error processing ${name}.proto"
       exit $?
