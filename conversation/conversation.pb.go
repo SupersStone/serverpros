@@ -21,7 +21,7 @@
 package conversation
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	wrapperspb "github.com/SupersStone/serverpros/wrapperspb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -549,10 +549,10 @@ func (x *GetConversationResp) GetConversation() *Conversation {
 }
 
 type GetSortedConversationListReq struct {
-	state           protoimpl.MessageState       `protogen:"open.v1"`
-	UserID          string                       `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	ConversationIDs []string                     `protobuf:"bytes,2,rep,name=conversationIDs,proto3" json:"conversationIDs"`
-	Pagination      *contactws.RequestPagination `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination"`
+	state           protoimpl.MessageState   `protogen:"open.v1"`
+	UserID          string                   `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
+	ConversationIDs []string                 `protobuf:"bytes,2,rep,name=conversationIDs,proto3" json:"conversationIDs"`
+	Pagination      *sdkws.RequestPagination `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -601,7 +601,7 @@ func (x *GetSortedConversationListReq) GetConversationIDs() []string {
 	return nil
 }
 
-func (x *GetSortedConversationListReq) GetPagination() *contactws.RequestPagination {
+func (x *GetSortedConversationListReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2557,9 +2557,9 @@ func (x *GetIncrementalConversationResp) GetUpdate() []*Conversation {
 }
 
 type GetOwnerConversationReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	UserID        string                       `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	UserID        string                   `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2601,7 +2601,7 @@ func (x *GetOwnerConversationReq) GetUserID() string {
 	return ""
 }
 
-func (x *GetOwnerConversationReq) GetPagination() *contactws.RequestPagination {
+func (x *GetOwnerConversationReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -3626,7 +3626,7 @@ var file_conversation_conversation_proto_goTypes = []any{
 	(*wrapperspb.BoolValue)(nil),                        // 51: openim.protobuf.BoolValue
 	(*wrapperspb.StringValue)(nil),                      // 52: openim.protobuf.StringValue
 	(*wrapperspb.Int64Value)(nil),                       // 53: openim.protobuf.Int64Value
-	(*contactws.RequestPagination)(nil),                 // 54: openim.contactws.RequestPagination
+	(*sdkws.RequestPagination)(nil),                     // 54: openim.contactws.RequestPagination
 }
 var file_conversation_conversation_proto_depIdxs = []int32{
 	50, // 0: openim.conversation.ConversationReq.recvMsgOpt:type_name -> openim.protobuf.Int32Value

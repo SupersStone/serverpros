@@ -21,7 +21,7 @@
 package relation
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	wrapperspb "github.com/SupersStone/serverpros/wrapperspb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -37,9 +37,9 @@ const (
 )
 
 type GetPaginationFriendsReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	UserID        string                       `protobuf:"bytes,2,opt,name=userID,proto3" json:"userID"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	UserID        string                   `protobuf:"bytes,2,opt,name=userID,proto3" json:"userID"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,7 +74,7 @@ func (*GetPaginationFriendsReq) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetPaginationFriendsReq) GetPagination() *contactws.RequestPagination {
+func (x *GetPaginationFriendsReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -89,9 +89,9 @@ func (x *GetPaginationFriendsReq) GetUserID() string {
 }
 
 type GetPaginationFriendsResp struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	FriendsInfo   []*contactws.FriendInfo `protobuf:"bytes,1,rep,name=friendsInfo,proto3" json:"friendsInfo"`
-	Total         int32                   `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	FriendsInfo   []*sdkws.FriendInfo    `protobuf:"bytes,1,rep,name=friendsInfo,proto3" json:"friendsInfo"`
+	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -126,7 +126,7 @@ func (*GetPaginationFriendsResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetPaginationFriendsResp) GetFriendsInfo() []*contactws.FriendInfo {
+func (x *GetPaginationFriendsResp) GetFriendsInfo() []*sdkws.FriendInfo {
 	if x != nil {
 		return x.FriendsInfo
 	}
@@ -449,9 +449,9 @@ func (*ImportFriendResp) Descriptor() ([]byte, []int) {
 }
 
 type GetPaginationFriendsApplyToReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	UserID        string                       `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	UserID        string                   `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -493,7 +493,7 @@ func (x *GetPaginationFriendsApplyToReq) GetUserID() string {
 	return ""
 }
 
-func (x *GetPaginationFriendsApplyToReq) GetPagination() *contactws.RequestPagination {
+func (x *GetPaginationFriendsApplyToReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -501,9 +501,9 @@ func (x *GetPaginationFriendsApplyToReq) GetPagination() *contactws.RequestPagin
 }
 
 type GetPaginationFriendsApplyToResp struct {
-	state          protoimpl.MessageState     `protogen:"open.v1"`
-	FriendRequests []*contactws.FriendRequest `protobuf:"bytes,1,rep,name=FriendRequests,proto3" json:"FriendRequests"`
-	Total          int32                      `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	FriendRequests []*sdkws.FriendRequest `protobuf:"bytes,1,rep,name=FriendRequests,proto3" json:"FriendRequests"`
+	Total          int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -538,7 +538,7 @@ func (*GetPaginationFriendsApplyToResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *GetPaginationFriendsApplyToResp) GetFriendRequests() []*contactws.FriendRequest {
+func (x *GetPaginationFriendsApplyToResp) GetFriendRequests() []*sdkws.FriendRequest {
 	if x != nil {
 		return x.FriendRequests
 	}
@@ -605,8 +605,8 @@ func (x *GetDesignatedFriendsApplyReq) GetToUserID() string {
 }
 
 type GetDesignatedFriendsApplyResp struct {
-	state          protoimpl.MessageState     `protogen:"open.v1"`
-	FriendRequests []*contactws.FriendRequest `protobuf:"bytes,1,rep,name=friendRequests,proto3" json:"friendRequests"`
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	FriendRequests []*sdkws.FriendRequest `protobuf:"bytes,1,rep,name=friendRequests,proto3" json:"friendRequests"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -641,7 +641,7 @@ func (*GetDesignatedFriendsApplyResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *GetDesignatedFriendsApplyResp) GetFriendRequests() []*contactws.FriendRequest {
+func (x *GetDesignatedFriendsApplyResp) GetFriendRequests() []*sdkws.FriendRequest {
 	if x != nil {
 		return x.FriendRequests
 	}
@@ -709,12 +709,12 @@ func (x *GetIncrementalFriendsApplyToReq) GetVersion() uint64 {
 }
 
 type GetIncrementalFriendsApplyToResp struct {
-	state         protoimpl.MessageState     `protogen:"open.v1"`
-	Version       uint64                     `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
-	VersionID     string                     `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
-	Full          bool                       `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
-	DeleteUserIds []string                   `protobuf:"bytes,4,rep,name=deleteUserIds,proto3" json:"deleteUserIds"`
-	Changes       []*contactws.FriendRequest `protobuf:"bytes,5,rep,name=changes,proto3" json:"changes"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Version       uint64                 `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
+	VersionID     string                 `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
+	Full          bool                   `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
+	DeleteUserIds []string               `protobuf:"bytes,4,rep,name=deleteUserIds,proto3" json:"deleteUserIds"`
+	Changes       []*sdkws.FriendRequest `protobuf:"bytes,5,rep,name=changes,proto3" json:"changes"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -777,7 +777,7 @@ func (x *GetIncrementalFriendsApplyToResp) GetDeleteUserIds() []string {
 	return nil
 }
 
-func (x *GetIncrementalFriendsApplyToResp) GetChanges() []*contactws.FriendRequest {
+func (x *GetIncrementalFriendsApplyToResp) GetChanges() []*sdkws.FriendRequest {
 	if x != nil {
 		return x.Changes
 	}
@@ -845,12 +845,12 @@ func (x *GetIncrementalFriendsApplyFromReq) GetVersion() uint64 {
 }
 
 type GetIncrementalFriendsApplyFromResp struct {
-	state         protoimpl.MessageState     `protogen:"open.v1"`
-	Version       uint64                     `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
-	VersionID     string                     `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
-	Full          bool                       `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
-	DeleteUserIds []string                   `protobuf:"bytes,4,rep,name=deleteUserIds,proto3" json:"deleteUserIds"`
-	Changes       []*contactws.FriendRequest `protobuf:"bytes,5,rep,name=changes,proto3" json:"changes"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Version       uint64                 `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
+	VersionID     string                 `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
+	Full          bool                   `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
+	DeleteUserIds []string               `protobuf:"bytes,4,rep,name=deleteUserIds,proto3" json:"deleteUserIds"`
+	Changes       []*sdkws.FriendRequest `protobuf:"bytes,5,rep,name=changes,proto3" json:"changes"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -913,7 +913,7 @@ func (x *GetIncrementalFriendsApplyFromResp) GetDeleteUserIds() []string {
 	return nil
 }
 
-func (x *GetIncrementalFriendsApplyFromResp) GetChanges() []*contactws.FriendRequest {
+func (x *GetIncrementalFriendsApplyFromResp) GetChanges() []*sdkws.FriendRequest {
 	if x != nil {
 		return x.Changes
 	}
@@ -973,8 +973,8 @@ func (x *GetDesignatedFriendsReq) GetFriendUserIDs() []string {
 }
 
 type GetDesignatedFriendsResp struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	FriendsInfo   []*contactws.FriendInfo `protobuf:"bytes,1,rep,name=friendsInfo,proto3" json:"friendsInfo"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	FriendsInfo   []*sdkws.FriendInfo    `protobuf:"bytes,1,rep,name=friendsInfo,proto3" json:"friendsInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1009,7 +1009,7 @@ func (*GetDesignatedFriendsResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{16}
 }
 
-func (x *GetDesignatedFriendsResp) GetFriendsInfo() []*contactws.FriendInfo {
+func (x *GetDesignatedFriendsResp) GetFriendsInfo() []*sdkws.FriendInfo {
 	if x != nil {
 		return x.FriendsInfo
 	}
@@ -1201,9 +1201,9 @@ func (*RemoveBlackResp) Descriptor() ([]byte, []int) {
 }
 
 type GetPaginationBlacksReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	UserID        string                       `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	UserID        string                   `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1245,7 +1245,7 @@ func (x *GetPaginationBlacksReq) GetUserID() string {
 	return ""
 }
 
-func (x *GetPaginationBlacksReq) GetPagination() *contactws.RequestPagination {
+func (x *GetPaginationBlacksReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1254,7 +1254,7 @@ func (x *GetPaginationBlacksReq) GetPagination() *contactws.RequestPagination {
 
 type GetPaginationBlacksResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Blacks        []*contactws.BlackInfo `protobuf:"bytes,1,rep,name=blacks,proto3" json:"blacks"`
+	Blacks        []*sdkws.BlackInfo     `protobuf:"bytes,1,rep,name=blacks,proto3" json:"blacks"`
 	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1290,7 +1290,7 @@ func (*GetPaginationBlacksResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{22}
 }
 
-func (x *GetPaginationBlacksResp) GetBlacks() []*contactws.BlackInfo {
+func (x *GetPaginationBlacksResp) GetBlacks() []*sdkws.BlackInfo {
 	if x != nil {
 		return x.Blacks
 	}
@@ -1914,9 +1914,9 @@ func (*SetFriendRemarkResp) Descriptor() ([]byte, []int) {
 }
 
 type GetPaginationFriendsApplyFromReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	UserID        string                       `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	UserID        string                   `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1958,7 +1958,7 @@ func (x *GetPaginationFriendsApplyFromReq) GetUserID() string {
 	return ""
 }
 
-func (x *GetPaginationFriendsApplyFromReq) GetPagination() *contactws.RequestPagination {
+func (x *GetPaginationFriendsApplyFromReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1966,9 +1966,9 @@ func (x *GetPaginationFriendsApplyFromReq) GetPagination() *contactws.RequestPag
 }
 
 type GetPaginationFriendsApplyFromResp struct {
-	state          protoimpl.MessageState     `protogen:"open.v1"`
-	FriendRequests []*contactws.FriendRequest `protobuf:"bytes,1,rep,name=friendRequests,proto3" json:"friendRequests"`
-	Total          int32                      `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	FriendRequests []*sdkws.FriendRequest `protobuf:"bytes,1,rep,name=friendRequests,proto3" json:"friendRequests"`
+	Total          int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -2003,7 +2003,7 @@ func (*GetPaginationFriendsApplyFromResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{36}
 }
 
-func (x *GetPaginationFriendsApplyFromResp) GetFriendRequests() []*contactws.FriendRequest {
+func (x *GetPaginationFriendsApplyFromResp) GetFriendRequests() []*sdkws.FriendRequest {
 	if x != nil {
 		return x.FriendRequests
 	}
@@ -2159,9 +2159,9 @@ func (x *GetSpecifiedFriendsInfoReq) GetUserIDList() []string {
 
 type GetSpecifiedFriendsInfoInfo struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserInfo      *contactws.UserInfo    `protobuf:"bytes,1,opt,name=userInfo,proto3" json:"userInfo"`
-	FriendInfo    *contactws.FriendInfo  `protobuf:"bytes,2,opt,name=friendInfo,proto3" json:"friendInfo"`
-	BlackInfo     *contactws.BlackInfo   `protobuf:"bytes,3,opt,name=blackInfo,proto3" json:"blackInfo"`
+	UserInfo      *sdkws.UserInfo        `protobuf:"bytes,1,opt,name=userInfo,proto3" json:"userInfo"`
+	FriendInfo    *sdkws.FriendInfo      `protobuf:"bytes,2,opt,name=friendInfo,proto3" json:"friendInfo"`
+	BlackInfo     *sdkws.BlackInfo       `protobuf:"bytes,3,opt,name=blackInfo,proto3" json:"blackInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2196,21 +2196,21 @@ func (*GetSpecifiedFriendsInfoInfo) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{40}
 }
 
-func (x *GetSpecifiedFriendsInfoInfo) GetUserInfo() *contactws.UserInfo {
+func (x *GetSpecifiedFriendsInfoInfo) GetUserInfo() *sdkws.UserInfo {
 	if x != nil {
 		return x.UserInfo
 	}
 	return nil
 }
 
-func (x *GetSpecifiedFriendsInfoInfo) GetFriendInfo() *contactws.FriendInfo {
+func (x *GetSpecifiedFriendsInfoInfo) GetFriendInfo() *sdkws.FriendInfo {
 	if x != nil {
 		return x.FriendInfo
 	}
 	return nil
 }
 
-func (x *GetSpecifiedFriendsInfoInfo) GetBlackInfo() *contactws.BlackInfo {
+func (x *GetSpecifiedFriendsInfoInfo) GetBlackInfo() *sdkws.BlackInfo {
 	if x != nil {
 		return x.BlackInfo
 	}
@@ -2322,14 +2322,14 @@ func (x *GetIncrementalFriendsReq) GetVersion() uint64 {
 }
 
 type GetIncrementalFriendsResp struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	Version       uint64                  `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
-	VersionID     string                  `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
-	Full          bool                    `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
-	Delete        []string                `protobuf:"bytes,4,rep,name=delete,proto3" json:"delete"`
-	Insert        []*contactws.FriendInfo `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
-	Update        []*contactws.FriendInfo `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
-	SortVersion   uint64                  `protobuf:"varint,7,opt,name=sortVersion,proto3" json:"sortVersion"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Version       uint64                 `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
+	VersionID     string                 `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
+	Full          bool                   `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
+	Delete        []string               `protobuf:"bytes,4,rep,name=delete,proto3" json:"delete"`
+	Insert        []*sdkws.FriendInfo    `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
+	Update        []*sdkws.FriendInfo    `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
+	SortVersion   uint64                 `protobuf:"varint,7,opt,name=sortVersion,proto3" json:"sortVersion"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2392,14 +2392,14 @@ func (x *GetIncrementalFriendsResp) GetDelete() []string {
 	return nil
 }
 
-func (x *GetIncrementalFriendsResp) GetInsert() []*contactws.FriendInfo {
+func (x *GetIncrementalFriendsResp) GetInsert() []*sdkws.FriendInfo {
 	if x != nil {
 		return x.Insert
 	}
 	return nil
 }
 
-func (x *GetIncrementalFriendsResp) GetUpdate() []*contactws.FriendInfo {
+func (x *GetIncrementalFriendsResp) GetUpdate() []*sdkws.FriendInfo {
 	if x != nil {
 		return x.Update
 	}
@@ -2479,8 +2479,8 @@ type GetIncrementalBlacksResp struct {
 	VersionID     string                 `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
 	Full          bool                   `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
 	Delete        []string               `protobuf:"bytes,4,rep,name=delete,proto3" json:"delete"`
-	Insert        []*contactws.BlackInfo `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
-	Update        []*contactws.BlackInfo `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
+	Insert        []*sdkws.BlackInfo     `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
+	Update        []*sdkws.BlackInfo     `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2543,14 +2543,14 @@ func (x *GetIncrementalBlacksResp) GetDelete() []string {
 	return nil
 }
 
-func (x *GetIncrementalBlacksResp) GetInsert() []*contactws.BlackInfo {
+func (x *GetIncrementalBlacksResp) GetInsert() []*sdkws.BlackInfo {
 	if x != nil {
 		return x.Insert
 	}
 	return nil
 }
 
-func (x *GetIncrementalBlacksResp) GetUpdate() []*contactws.BlackInfo {
+func (x *GetIncrementalBlacksResp) GetUpdate() []*sdkws.BlackInfo {
 	if x != nil {
 		return x.Update
 	}
@@ -2611,7 +2611,7 @@ func (x *GetSpecifiedBlacksReq) GetUserIDList() []string {
 
 type GetSpecifiedBlacksResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Blacks        []*contactws.BlackInfo `protobuf:"bytes,1,rep,name=blacks,proto3" json:"blacks"`
+	Blacks        []*sdkws.BlackInfo     `protobuf:"bytes,1,rep,name=blacks,proto3" json:"blacks"`
 	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2647,7 +2647,7 @@ func (*GetSpecifiedBlacksResp) Descriptor() ([]byte, []int) {
 	return file_relation_relation_proto_rawDescGZIP(), []int{47}
 }
 
-func (x *GetSpecifiedBlacksResp) GetBlacks() []*contactws.BlackInfo {
+func (x *GetSpecifiedBlacksResp) GetBlacks() []*sdkws.BlackInfo {
 	if x != nil {
 		return x.Blacks
 	}
@@ -2784,8 +2784,8 @@ func (x *GetFullFriendUserIDsResp) GetUserIDs() []string {
 type NotificationUserInfoUpdateReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserID        string                 `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	OldUserInfo   *contactws.UserInfo    `protobuf:"bytes,2,opt,name=oldUserInfo,proto3" json:"oldUserInfo"`
-	NewUserInfo   *contactws.UserInfo    `protobuf:"bytes,3,opt,name=newUserInfo,proto3" json:"newUserInfo"`
+	OldUserInfo   *sdkws.UserInfo        `protobuf:"bytes,2,opt,name=oldUserInfo,proto3" json:"oldUserInfo"`
+	NewUserInfo   *sdkws.UserInfo        `protobuf:"bytes,3,opt,name=newUserInfo,proto3" json:"newUserInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2827,14 +2827,14 @@ func (x *NotificationUserInfoUpdateReq) GetUserID() string {
 	return ""
 }
 
-func (x *NotificationUserInfoUpdateReq) GetOldUserInfo() *contactws.UserInfo {
+func (x *NotificationUserInfoUpdateReq) GetOldUserInfo() *sdkws.UserInfo {
 	if x != nil {
 		return x.OldUserInfo
 	}
 	return nil
 }
 
-func (x *NotificationUserInfoUpdateReq) GetNewUserInfo() *contactws.UserInfo {
+func (x *NotificationUserInfoUpdateReq) GetNewUserInfo() *sdkws.UserInfo {
 	if x != nil {
 		return x.NewUserInfo
 	}
@@ -3708,13 +3708,13 @@ var file_relation_relation_proto_goTypes = []any{
 	(*FriendInfoOnly)(nil),                     // 52: openim.relation.FriendInfoOnly
 	(*GetFriendInfoReq)(nil),                   // 53: openim.relation.getFriendInfoReq
 	(*GetFriendInfoResp)(nil),                  // 54: openim.relation.getFriendInfoResp
-	(*contactws.RequestPagination)(nil),        // 55: openim.contactws.RequestPagination
-	(*contactws.FriendInfo)(nil),               // 56: openim.contactws.FriendInfo
-	(*contactws.FriendRequest)(nil),            // 57: openim.contactws.FriendRequest
-	(*contactws.BlackInfo)(nil),                // 58: openim.contactws.BlackInfo
+	(*sdkws.RequestPagination)(nil),            // 55: openim.contactws.RequestPagination
+	(*sdkws.FriendInfo)(nil),                   // 56: openim.contactws.FriendInfo
+	(*sdkws.FriendRequest)(nil),                // 57: openim.contactws.FriendRequest
+	(*sdkws.BlackInfo)(nil),                    // 58: openim.contactws.BlackInfo
 	(*wrapperspb.BoolValue)(nil),               // 59: openim.protobuf.BoolValue
 	(*wrapperspb.StringValue)(nil),             // 60: openim.protobuf.StringValue
-	(*contactws.UserInfo)(nil),                 // 61: openim.contactws.UserInfo
+	(*sdkws.UserInfo)(nil),                     // 61: openim.contactws.UserInfo
 }
 var file_relation_relation_proto_depIdxs = []int32{
 	55, // 0: openim.relation.getPaginationFriendsReq.pagination:type_name -> openim.contactws.RequestPagination

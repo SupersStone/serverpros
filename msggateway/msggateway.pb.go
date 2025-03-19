@@ -21,7 +21,7 @@
 package msggateway
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -37,7 +37,7 @@ const (
 
 type OnlinePushMsgReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
 	PushToUserID  string                 `protobuf:"bytes,2,opt,name=pushToUserID,proto3" json:"pushToUserID"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -73,7 +73,7 @@ func (*OnlinePushMsgReq) Descriptor() ([]byte, []int) {
 	return file_msggateway_msggateway_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *OnlinePushMsgReq) GetMsgData() *contactws.MsgData {
+func (x *OnlinePushMsgReq) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -193,7 +193,7 @@ func (x *SingleMsgToUserResults) GetOnlinePush() bool {
 
 type OnlineBatchPushOneMsgReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
 	PushToUserIDs []string               `protobuf:"bytes,2,rep,name=pushToUserIDs,proto3" json:"pushToUserIDs"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -229,7 +229,7 @@ func (*OnlineBatchPushOneMsgReq) Descriptor() ([]byte, []int) {
 	return file_msggateway_msggateway_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *OnlineBatchPushOneMsgReq) GetMsgData() *contactws.MsgData {
+func (x *OnlineBatchPushOneMsgReq) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -1120,7 +1120,7 @@ var file_msggateway_msggateway_proto_goTypes = []any{
 	(*GetUsersOnlineStatusResp_SuccessDetail)(nil), // 14: openim.msggateway.GetUsersOnlineStatusResp.SuccessDetail
 	(*GetUsersOnlineStatusResp_FailedDetail)(nil),  // 15: openim.msggateway.GetUsersOnlineStatusResp.FailedDetail
 	(*GetUsersOnlineStatusResp_SuccessResult)(nil), // 16: openim.msggateway.GetUsersOnlineStatusResp.SuccessResult
-	(*contactws.MsgData)(nil),                      // 17: openim.contactws.MsgData
+	(*sdkws.MsgData)(nil),                          // 17: openim.contactws.MsgData
 }
 var file_msggateway_msggateway_proto_depIdxs = []int32{
 	17, // 0: openim.msggateway.OnlinePushMsgReq.msgData:type_name -> openim.contactws.MsgData

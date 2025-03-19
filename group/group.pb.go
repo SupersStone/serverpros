@@ -21,7 +21,7 @@
 package group
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	wrapperspb "github.com/SupersStone/serverpros/wrapperspb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -39,7 +39,7 @@ const (
 type CreateGroupReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	MemberUserIDs []string               `protobuf:"bytes,1,rep,name=memberUserIDs,proto3" json:"memberUserIDs"`
-	GroupInfo     *contactws.GroupInfo   `protobuf:"bytes,2,opt,name=groupInfo,proto3" json:"groupInfo"`
+	GroupInfo     *sdkws.GroupInfo       `protobuf:"bytes,2,opt,name=groupInfo,proto3" json:"groupInfo"`
 	AdminUserIDs  []string               `protobuf:"bytes,3,rep,name=adminUserIDs,proto3" json:"adminUserIDs"`
 	OwnerUserID   string                 `protobuf:"bytes,4,opt,name=ownerUserID,proto3" json:"ownerUserID"` //owner
 	unknownFields protoimpl.UnknownFields
@@ -83,7 +83,7 @@ func (x *CreateGroupReq) GetMemberUserIDs() []string {
 	return nil
 }
 
-func (x *CreateGroupReq) GetGroupInfo() *contactws.GroupInfo {
+func (x *CreateGroupReq) GetGroupInfo() *sdkws.GroupInfo {
 	if x != nil {
 		return x.GroupInfo
 	}
@@ -106,7 +106,7 @@ func (x *CreateGroupReq) GetOwnerUserID() string {
 
 type CreateGroupResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	GroupInfo     *contactws.GroupInfo   `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
+	GroupInfo     *sdkws.GroupInfo       `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -141,7 +141,7 @@ func (*CreateGroupResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateGroupResp) GetGroupInfo() *contactws.GroupInfo {
+func (x *CreateGroupResp) GetGroupInfo() *sdkws.GroupInfo {
 	if x != nil {
 		return x.GroupInfo
 	}
@@ -194,7 +194,7 @@ func (x *GetGroupsInfoReq) GetGroupIDs() []string {
 
 type GetGroupsInfoResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	GroupInfos    []*contactws.GroupInfo `protobuf:"bytes,1,rep,name=groupInfos,proto3" json:"groupInfos"`
+	GroupInfos    []*sdkws.GroupInfo     `protobuf:"bytes,1,rep,name=groupInfos,proto3" json:"groupInfos"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -229,7 +229,7 @@ func (*GetGroupsInfoResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetGroupsInfoResp) GetGroupInfos() []*contactws.GroupInfo {
+func (x *GetGroupsInfoResp) GetGroupInfos() []*sdkws.GroupInfo {
 	if x != nil {
 		return x.GroupInfos
 	}
@@ -237,8 +237,8 @@ func (x *GetGroupsInfoResp) GetGroupInfos() []*contactws.GroupInfo {
 }
 
 type SetGroupInfoReq struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	GroupInfoForSet *contactws.GroupInfoForSet `protobuf:"bytes,1,opt,name=groupInfoForSet,proto3" json:"groupInfoForSet"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	GroupInfoForSet *sdkws.GroupInfoForSet `protobuf:"bytes,1,opt,name=groupInfoForSet,proto3" json:"groupInfoForSet"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -273,7 +273,7 @@ func (*SetGroupInfoReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *SetGroupInfoReq) GetGroupInfoForSet() *contactws.GroupInfoForSet {
+func (x *SetGroupInfoReq) GetGroupInfoForSet() *sdkws.GroupInfoForSet {
 	if x != nil {
 		return x.GroupInfoForSet
 	}
@@ -461,9 +461,9 @@ func (*SetGroupInfoExResp) Descriptor() ([]byte, []int) {
 }
 
 type GetGroupApplicationListReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	FromUserID    string                       `protobuf:"bytes,2,opt,name=fromUserID,proto3" json:"fromUserID"` //owner or admin
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	FromUserID    string                   `protobuf:"bytes,2,opt,name=fromUserID,proto3" json:"fromUserID"` //owner or admin
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -498,7 +498,7 @@ func (*GetGroupApplicationListReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *GetGroupApplicationListReq) GetPagination() *contactws.RequestPagination {
+func (x *GetGroupApplicationListReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -513,9 +513,9 @@ func (x *GetGroupApplicationListReq) GetFromUserID() string {
 }
 
 type GetGroupApplicationListResp struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	Total         uint32                    `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	GroupRequests []*contactws.GroupRequest `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Total         uint32                 `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
+	GroupRequests []*sdkws.GroupRequest  `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -557,7 +557,7 @@ func (x *GetGroupApplicationListResp) GetTotal() uint32 {
 	return 0
 }
 
-func (x *GetGroupApplicationListResp) GetGroupRequests() []*contactws.GroupRequest {
+func (x *GetGroupApplicationListResp) GetGroupRequests() []*sdkws.GroupRequest {
 	if x != nil {
 		return x.GroupRequests
 	}
@@ -565,9 +565,9 @@ func (x *GetGroupApplicationListResp) GetGroupRequests() []*contactws.GroupReque
 }
 
 type GetUserReqApplicationListReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	UserID        string                       `protobuf:"bytes,2,opt,name=userID,proto3" json:"userID"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	UserID        string                   `protobuf:"bytes,2,opt,name=userID,proto3" json:"userID"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -602,7 +602,7 @@ func (*GetUserReqApplicationListReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *GetUserReqApplicationListReq) GetPagination() *contactws.RequestPagination {
+func (x *GetUserReqApplicationListReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -617,9 +617,9 @@ func (x *GetUserReqApplicationListReq) GetUserID() string {
 }
 
 type GetUserReqApplicationListResp struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	Total         uint32                    `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	GroupRequests []*contactws.GroupRequest `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Total         uint32                 `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
+	GroupRequests []*sdkws.GroupRequest  `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -661,7 +661,7 @@ func (x *GetUserReqApplicationListResp) GetTotal() uint32 {
 	return 0
 }
 
-func (x *GetUserReqApplicationListResp) GetGroupRequests() []*contactws.GroupRequest {
+func (x *GetUserReqApplicationListResp) GetGroupRequests() []*sdkws.GroupRequest {
 	if x != nil {
 		return x.GroupRequests
 	}
@@ -721,9 +721,9 @@ func (x *GetSpecifiedUserGroupRequestInfoReq) GetUserID() string {
 }
 
 type GetSpecifiedUserGroupRequestInfoResp struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	Total         uint32                    `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	GroupRequests []*contactws.GroupRequest `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Total         uint32                 `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
+	GroupRequests []*sdkws.GroupRequest  `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -765,7 +765,7 @@ func (x *GetSpecifiedUserGroupRequestInfoResp) GetTotal() uint32 {
 	return 0
 }
 
-func (x *GetSpecifiedUserGroupRequestInfoResp) GetGroupRequests() []*contactws.GroupRequest {
+func (x *GetSpecifiedUserGroupRequestInfoResp) GetGroupRequests() []*sdkws.GroupRequest {
 	if x != nil {
 		return x.GroupRequests
 	}
@@ -1173,11 +1173,11 @@ func (*QuitGroupResp) Descriptor() ([]byte, []int) {
 }
 
 type GetGroupMemberListReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	GroupID       string                       `protobuf:"bytes,2,opt,name=groupID,proto3" json:"groupID"`
-	Filter        int32                        `protobuf:"varint,3,opt,name=filter,proto3" json:"filter"`
-	Keyword       string                       `protobuf:"bytes,4,opt,name=keyword,proto3" json:"keyword"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	GroupID       string                   `protobuf:"bytes,2,opt,name=groupID,proto3" json:"groupID"`
+	Filter        int32                    `protobuf:"varint,3,opt,name=filter,proto3" json:"filter"`
+	Keyword       string                   `protobuf:"bytes,4,opt,name=keyword,proto3" json:"keyword"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1212,7 +1212,7 @@ func (*GetGroupMemberListReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{22}
 }
 
-func (x *GetGroupMemberListReq) GetPagination() *contactws.RequestPagination {
+func (x *GetGroupMemberListReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1241,9 +1241,9 @@ func (x *GetGroupMemberListReq) GetKeyword() string {
 }
 
 type GetGroupMemberListResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Total         uint32                           `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	Members       []*contactws.GroupMemberFullInfo `protobuf:"bytes,2,rep,name=members,proto3" json:"members"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Total         uint32                       `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
+	Members       []*sdkws.GroupMemberFullInfo `protobuf:"bytes,2,rep,name=members,proto3" json:"members"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1285,7 +1285,7 @@ func (x *GetGroupMemberListResp) GetTotal() uint32 {
 	return 0
 }
 
-func (x *GetGroupMemberListResp) GetMembers() []*contactws.GroupMemberFullInfo {
+func (x *GetGroupMemberListResp) GetMembers() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Members
 	}
@@ -1345,8 +1345,8 @@ func (x *GetGroupMembersInfoReq) GetUserIDs() []string {
 }
 
 type GetGroupMembersInfoResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Members       []*contactws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Members       []*sdkws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1381,7 +1381,7 @@ func (*GetGroupMembersInfoResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{25}
 }
 
-func (x *GetGroupMembersInfoResp) GetMembers() []*contactws.GroupMemberFullInfo {
+func (x *GetGroupMembersInfoResp) GetMembers() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Members
 	}
@@ -1485,9 +1485,9 @@ func (*KickGroupMemberResp) Descriptor() ([]byte, []int) {
 }
 
 type GetJoinedGroupListReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	FromUserID    string                       `protobuf:"bytes,2,opt,name=fromUserID,proto3" json:"fromUserID"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	FromUserID    string                   `protobuf:"bytes,2,opt,name=fromUserID,proto3" json:"fromUserID"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1522,7 +1522,7 @@ func (*GetJoinedGroupListReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{28}
 }
 
-func (x *GetJoinedGroupListReq) GetPagination() *contactws.RequestPagination {
+func (x *GetJoinedGroupListReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1539,7 +1539,7 @@ func (x *GetJoinedGroupListReq) GetFromUserID() string {
 type GetJoinedGroupListResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Total         uint32                 `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	Groups        []*contactws.GroupInfo `protobuf:"bytes,2,rep,name=groups,proto3" json:"groups"`
+	Groups        []*sdkws.GroupInfo     `protobuf:"bytes,2,rep,name=groups,proto3" json:"groups"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1581,7 +1581,7 @@ func (x *GetJoinedGroupListResp) GetTotal() uint32 {
 	return 0
 }
 
-func (x *GetJoinedGroupListResp) GetGroups() []*contactws.GroupInfo {
+func (x *GetJoinedGroupListResp) GetGroups() []*sdkws.GroupInfo {
 	if x != nil {
 		return x.Groups
 	}
@@ -1685,9 +1685,9 @@ func (*InviteUserToGroupResp) Descriptor() ([]byte, []int) {
 }
 
 type GetGroupAllMemberReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	GroupID       string                       `protobuf:"bytes,2,opt,name=groupID,proto3" json:"groupID"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	GroupID       string                   `protobuf:"bytes,2,opt,name=groupID,proto3" json:"groupID"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1722,7 +1722,7 @@ func (*GetGroupAllMemberReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{32}
 }
 
-func (x *GetGroupAllMemberReq) GetPagination() *contactws.RequestPagination {
+func (x *GetGroupAllMemberReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1737,8 +1737,8 @@ func (x *GetGroupAllMemberReq) GetGroupID() string {
 }
 
 type GetGroupAllMemberResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Members       []*contactws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Members       []*sdkws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1773,7 +1773,7 @@ func (*GetGroupAllMemberResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{33}
 }
 
-func (x *GetGroupAllMemberResp) GetMembers() []*contactws.GroupMemberFullInfo {
+func (x *GetGroupAllMemberResp) GetMembers() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Members
 	}
@@ -1782,7 +1782,7 @@ func (x *GetGroupAllMemberResp) GetMembers() []*contactws.GroupMemberFullInfo {
 
 type CMSGroup struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
-	GroupInfo          *contactws.GroupInfo   `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
+	GroupInfo          *sdkws.GroupInfo       `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
 	GroupOwnerUserName string                 `protobuf:"bytes,2,opt,name=groupOwnerUserName,proto3" json:"groupOwnerUserName"`
 	GroupOwnerUserID   string                 `protobuf:"bytes,3,opt,name=groupOwnerUserID,proto3" json:"groupOwnerUserID"`
 	unknownFields      protoimpl.UnknownFields
@@ -1819,7 +1819,7 @@ func (*CMSGroup) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{34}
 }
 
-func (x *CMSGroup) GetGroupInfo() *contactws.GroupInfo {
+func (x *CMSGroup) GetGroupInfo() *sdkws.GroupInfo {
 	if x != nil {
 		return x.GroupInfo
 	}
@@ -1841,10 +1841,10 @@ func (x *CMSGroup) GetGroupOwnerUserID() string {
 }
 
 type GetGroupsReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	GroupName     string                       `protobuf:"bytes,2,opt,name=groupName,proto3" json:"groupName"`
-	GroupID       string                       `protobuf:"bytes,3,opt,name=groupID,proto3" json:"groupID"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	GroupName     string                   `protobuf:"bytes,2,opt,name=groupName,proto3" json:"groupName"`
+	GroupID       string                   `protobuf:"bytes,3,opt,name=groupID,proto3" json:"groupID"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1879,7 +1879,7 @@ func (*GetGroupsReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *GetGroupsReq) GetPagination() *contactws.RequestPagination {
+func (x *GetGroupsReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1997,10 +1997,10 @@ func (x *GetGroupMemberReq) GetGroupID() string {
 }
 
 type GetGroupMembersCMSReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	GroupID       string                       `protobuf:"bytes,2,opt,name=groupID,proto3" json:"groupID"`
-	UserName      string                       `protobuf:"bytes,3,opt,name=userName,proto3" json:"userName"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	GroupID       string                   `protobuf:"bytes,2,opt,name=groupID,proto3" json:"groupID"`
+	UserName      string                   `protobuf:"bytes,3,opt,name=userName,proto3" json:"userName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2035,7 +2035,7 @@ func (*GetGroupMembersCMSReq) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{38}
 }
 
-func (x *GetGroupMembersCMSReq) GetPagination() *contactws.RequestPagination {
+func (x *GetGroupMembersCMSReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2057,9 +2057,9 @@ func (x *GetGroupMembersCMSReq) GetUserName() string {
 }
 
 type GetGroupMembersCMSResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Total         uint32                           `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	Members       []*contactws.GroupMemberFullInfo `protobuf:"bytes,2,rep,name=members,proto3" json:"members"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Total         uint32                       `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
+	Members       []*sdkws.GroupMemberFullInfo `protobuf:"bytes,2,rep,name=members,proto3" json:"members"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2101,7 +2101,7 @@ func (x *GetGroupMembersCMSResp) GetTotal() uint32 {
 	return 0
 }
 
-func (x *GetGroupMembersCMSResp) GetMembers() []*contactws.GroupMemberFullInfo {
+func (x *GetGroupMembersCMSResp) GetMembers() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Members
 	}
@@ -2905,8 +2905,8 @@ func (x *GetUserInGroupMembersReq) GetGroupIDs() []string {
 }
 
 type GetUserInGroupMembersResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Members       []*contactws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Members       []*sdkws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2941,7 +2941,7 @@ func (*GetUserInGroupMembersResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{57}
 }
 
-func (x *GetUserInGroupMembersResp) GetMembers() []*contactws.GroupMemberFullInfo {
+func (x *GetUserInGroupMembersResp) GetMembers() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Members
 	}
@@ -3089,8 +3089,8 @@ func (x *GetGroupMemberRoleLevelReq) GetRoleLevels() []int32 {
 }
 
 type GetGroupMemberRoleLevelResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Members       []*contactws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Members       []*sdkws.GroupMemberFullInfo `protobuf:"bytes,1,rep,name=members,proto3" json:"members"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3125,7 +3125,7 @@ func (*GetGroupMemberRoleLevelResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{61}
 }
 
-func (x *GetGroupMemberRoleLevelResp) GetMembers() []*contactws.GroupMemberFullInfo {
+func (x *GetGroupMemberRoleLevelResp) GetMembers() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Members
 	}
@@ -3178,7 +3178,7 @@ func (x *GetGroupInfoCacheReq) GetGroupID() string {
 
 type GetGroupInfoCacheResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	GroupInfo     *contactws.GroupInfo   `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
+	GroupInfo     *sdkws.GroupInfo       `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3213,7 +3213,7 @@ func (*GetGroupInfoCacheResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{63}
 }
 
-func (x *GetGroupInfoCacheResp) GetGroupInfo() *contactws.GroupInfo {
+func (x *GetGroupInfoCacheResp) GetGroupInfo() *sdkws.GroupInfo {
 	if x != nil {
 		return x.GroupInfo
 	}
@@ -3273,8 +3273,8 @@ func (x *GetGroupMemberCacheReq) GetGroupMemberID() string {
 }
 
 type GetGroupMemberCacheResp struct {
-	state         protoimpl.MessageState         `protogen:"open.v1"`
-	Member        *contactws.GroupMemberFullInfo `protobuf:"bytes,1,opt,name=member,proto3" json:"member"`
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Member        *sdkws.GroupMemberFullInfo `protobuf:"bytes,1,opt,name=member,proto3" json:"member"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3309,7 +3309,7 @@ func (*GetGroupMemberCacheResp) Descriptor() ([]byte, []int) {
 	return file_group_group_proto_rawDescGZIP(), []int{65}
 }
 
-func (x *GetGroupMemberCacheResp) GetMember() *contactws.GroupMemberFullInfo {
+func (x *GetGroupMemberCacheResp) GetMember() *sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Member
 	}
@@ -3481,9 +3481,9 @@ func (x *GetGroupUsersReqApplicationListReq) GetUserIDs() []string {
 }
 
 type GetGroupUsersReqApplicationListResp struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	Total         int64                     `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	GroupRequests []*contactws.GroupRequest `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Total         int64                  `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
+	GroupRequests []*sdkws.GroupRequest  `protobuf:"bytes,2,rep,name=groupRequests,proto3" json:"groupRequests"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3525,7 +3525,7 @@ func (x *GetGroupUsersReqApplicationListResp) GetTotal() int64 {
 	return 0
 }
 
-func (x *GetGroupUsersReqApplicationListResp) GetGroupRequests() []*contactws.GroupRequest {
+func (x *GetGroupUsersReqApplicationListResp) GetGroupRequests() []*sdkws.GroupRequest {
 	if x != nil {
 		return x.GroupRequests
 	}
@@ -3535,8 +3535,8 @@ func (x *GetGroupUsersReqApplicationListResp) GetGroupRequests() []*contactws.Gr
 type NotificationUserInfoUpdateReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserID        string                 `protobuf:"bytes,1,opt,name=userID,proto3" json:"userID"`
-	OldUserInfo   *contactws.UserInfo    `protobuf:"bytes,2,opt,name=oldUserInfo,proto3" json:"oldUserInfo"`
-	NewUserInfo   *contactws.UserInfo    `protobuf:"bytes,3,opt,name=newUserInfo,proto3" json:"newUserInfo"`
+	OldUserInfo   *sdkws.UserInfo        `protobuf:"bytes,2,opt,name=oldUserInfo,proto3" json:"oldUserInfo"`
+	NewUserInfo   *sdkws.UserInfo        `protobuf:"bytes,3,opt,name=newUserInfo,proto3" json:"newUserInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3578,14 +3578,14 @@ func (x *NotificationUserInfoUpdateReq) GetUserID() string {
 	return ""
 }
 
-func (x *NotificationUserInfoUpdateReq) GetOldUserInfo() *contactws.UserInfo {
+func (x *NotificationUserInfoUpdateReq) GetOldUserInfo() *sdkws.UserInfo {
 	if x != nil {
 		return x.OldUserInfo
 	}
 	return nil
 }
 
-func (x *NotificationUserInfoUpdateReq) GetNewUserInfo() *contactws.UserInfo {
+func (x *NotificationUserInfoUpdateReq) GetNewUserInfo() *sdkws.UserInfo {
 	if x != nil {
 		return x.NewUserInfo
 	}
@@ -3689,15 +3689,15 @@ func (x *GetIncrementalGroupMemberReq) GetVersion() uint64 {
 }
 
 type GetIncrementalGroupMemberResp struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Version       uint64                           `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
-	VersionID     string                           `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
-	Full          bool                             `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
-	Delete        []string                         `protobuf:"bytes,4,rep,name=delete,proto3" json:"delete"`
-	Insert        []*contactws.GroupMemberFullInfo `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
-	Update        []*contactws.GroupMemberFullInfo `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
-	Group         *contactws.GroupInfo             `protobuf:"bytes,7,opt,name=group,proto3" json:"group"`
-	SortVersion   uint64                           `protobuf:"varint,8,opt,name=sortVersion,proto3" json:"sortVersion"`
+	state         protoimpl.MessageState       `protogen:"open.v1"`
+	Version       uint64                       `protobuf:"varint,1,opt,name=version,proto3" json:"version"`
+	VersionID     string                       `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
+	Full          bool                         `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
+	Delete        []string                     `protobuf:"bytes,4,rep,name=delete,proto3" json:"delete"`
+	Insert        []*sdkws.GroupMemberFullInfo `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
+	Update        []*sdkws.GroupMemberFullInfo `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
+	Group         *sdkws.GroupInfo             `protobuf:"bytes,7,opt,name=group,proto3" json:"group"`
+	SortVersion   uint64                       `protobuf:"varint,8,opt,name=sortVersion,proto3" json:"sortVersion"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3760,21 +3760,21 @@ func (x *GetIncrementalGroupMemberResp) GetDelete() []string {
 	return nil
 }
 
-func (x *GetIncrementalGroupMemberResp) GetInsert() []*contactws.GroupMemberFullInfo {
+func (x *GetIncrementalGroupMemberResp) GetInsert() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Insert
 	}
 	return nil
 }
 
-func (x *GetIncrementalGroupMemberResp) GetUpdate() []*contactws.GroupMemberFullInfo {
+func (x *GetIncrementalGroupMemberResp) GetUpdate() []*sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.Update
 	}
 	return nil
 }
 
-func (x *GetIncrementalGroupMemberResp) GetGroup() *contactws.GroupInfo {
+func (x *GetIncrementalGroupMemberResp) GetGroup() *sdkws.GroupInfo {
 	if x != nil {
 		return x.Group
 	}
@@ -3854,8 +3854,8 @@ type GetIncrementalJoinGroupResp struct {
 	VersionID     string                 `protobuf:"bytes,2,opt,name=versionID,proto3" json:"versionID"`
 	Full          bool                   `protobuf:"varint,3,opt,name=full,proto3" json:"full"`
 	Delete        []string               `protobuf:"bytes,4,rep,name=delete,proto3" json:"delete"`
-	Insert        []*contactws.GroupInfo `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
-	Update        []*contactws.GroupInfo `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
+	Insert        []*sdkws.GroupInfo     `protobuf:"bytes,5,rep,name=insert,proto3" json:"insert"`
+	Update        []*sdkws.GroupInfo     `protobuf:"bytes,6,rep,name=update,proto3" json:"update"`
 	SortVersion   uint64                 `protobuf:"varint,7,opt,name=sortVersion,proto3" json:"sortVersion"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -3919,14 +3919,14 @@ func (x *GetIncrementalJoinGroupResp) GetDelete() []string {
 	return nil
 }
 
-func (x *GetIncrementalJoinGroupResp) GetInsert() []*contactws.GroupInfo {
+func (x *GetIncrementalJoinGroupResp) GetInsert() []*sdkws.GroupInfo {
 	if x != nil {
 		return x.Insert
 	}
 	return nil
 }
 
-func (x *GetIncrementalJoinGroupResp) GetUpdate() []*contactws.GroupInfo {
+func (x *GetIncrementalJoinGroupResp) GetUpdate() []*sdkws.GroupInfo {
 	if x != nil {
 		return x.Update
 	}
@@ -5159,16 +5159,16 @@ var file_group_group_proto_goTypes = []any{
 	(*GetFullJoinGroupIDsResp)(nil),              // 79: openim.group.GetFullJoinGroupIDsResp
 	(*BatchGetIncrementalGroupMemberReq)(nil),    // 80: openim.group.BatchGetIncrementalGroupMemberReq
 	(*BatchGetIncrementalGroupMemberResp)(nil),   // 81: openim.group.BatchGetIncrementalGroupMemberResp
-	nil,                                   // 82: openim.group.GroupCreateCountResp.CountEntry
-	nil,                                   // 83: openim.group.BatchGetIncrementalGroupMemberResp.RespListEntry
-	(*contactws.GroupInfo)(nil),           // 84: openim.contactws.GroupInfo
-	(*contactws.GroupInfoForSet)(nil),     // 85: openim.contactws.GroupInfoForSet
-	(*wrapperspb.StringValue)(nil),        // 86: openim.protobuf.StringValue
-	(*wrapperspb.Int32Value)(nil),         // 87: openim.protobuf.Int32Value
-	(*contactws.RequestPagination)(nil),   // 88: openim.contactws.RequestPagination
-	(*contactws.GroupRequest)(nil),        // 89: openim.contactws.GroupRequest
-	(*contactws.GroupMemberFullInfo)(nil), // 90: openim.contactws.GroupMemberFullInfo
-	(*contactws.UserInfo)(nil),            // 91: openim.contactws.UserInfo
+	nil,                               // 82: openim.group.GroupCreateCountResp.CountEntry
+	nil,                               // 83: openim.group.BatchGetIncrementalGroupMemberResp.RespListEntry
+	(*sdkws.GroupInfo)(nil),           // 84: openim.contactws.GroupInfo
+	(*sdkws.GroupInfoForSet)(nil),     // 85: openim.contactws.GroupInfoForSet
+	(*wrapperspb.StringValue)(nil),    // 86: openim.protobuf.StringValue
+	(*wrapperspb.Int32Value)(nil),     // 87: openim.protobuf.Int32Value
+	(*sdkws.RequestPagination)(nil),   // 88: openim.contactws.RequestPagination
+	(*sdkws.GroupRequest)(nil),        // 89: openim.contactws.GroupRequest
+	(*sdkws.GroupMemberFullInfo)(nil), // 90: openim.contactws.GroupMemberFullInfo
+	(*sdkws.UserInfo)(nil),            // 91: openim.contactws.UserInfo
 }
 var file_group_group_proto_depIdxs = []int32{
 	84, // 0: openim.group.CreateGroupReq.groupInfo:type_name -> openim.contactws.GroupInfo

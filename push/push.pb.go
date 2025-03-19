@@ -21,7 +21,7 @@
 package push
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -37,7 +37,7 @@ const (
 
 type PushMsgReq struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	MsgData        *contactws.MsgData     `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
+	MsgData        *sdkws.MsgData         `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
 	ConversationID string                 `protobuf:"bytes,2,opt,name=conversationID,proto3" json:"conversationID"`
 	UserIDs        []string               `protobuf:"bytes,3,rep,name=userIDs,proto3" json:"userIDs"`
 	unknownFields  protoimpl.UnknownFields
@@ -74,7 +74,7 @@ func (*PushMsgReq) Descriptor() ([]byte, []int) {
 	return file_push_push_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *PushMsgReq) GetMsgData() *contactws.MsgData {
+func (x *PushMsgReq) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -275,7 +275,7 @@ var file_push_push_proto_goTypes = []any{
 	(*PushMsgResp)(nil),          // 1: openim.push.PushMsgResp
 	(*DelUserPushTokenReq)(nil),  // 2: openim.push.DelUserPushTokenReq
 	(*DelUserPushTokenResp)(nil), // 3: openim.push.DelUserPushTokenResp
-	(*contactws.MsgData)(nil),    // 4: openim.contactws.MsgData
+	(*sdkws.MsgData)(nil),        // 4: openim.contactws.MsgData
 }
 var file_push_push_proto_depIdxs = []int32{
 	4, // 0: openim.push.PushMsgReq.msgData:type_name -> openim.contactws.MsgData

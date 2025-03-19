@@ -21,7 +21,7 @@
 package third
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1768,11 +1768,11 @@ func (*DeleteLogsResp) Descriptor() ([]byte, []int) {
 }
 
 type SearchLogsReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Keyword       string                       `protobuf:"bytes,1,opt,name=keyword,proto3" json:"keyword"`
-	StartTime     int64                        `protobuf:"varint,2,opt,name=startTime,proto3" json:"startTime"`
-	EndTime       int64                        `protobuf:"varint,3,opt,name=endTime,proto3" json:"endTime"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Keyword       string                   `protobuf:"bytes,1,opt,name=keyword,proto3" json:"keyword"`
+	StartTime     int64                    `protobuf:"varint,2,opt,name=startTime,proto3" json:"startTime"`
+	EndTime       int64                    `protobuf:"varint,3,opt,name=endTime,proto3" json:"endTime"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1828,7 +1828,7 @@ func (x *SearchLogsReq) GetEndTime() int64 {
 	return 0
 }
 
-func (x *SearchLogsReq) GetPagination() *contactws.RequestPagination {
+func (x *SearchLogsReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2362,7 +2362,7 @@ var file_third_third_proto_goTypes = []any{
 	(*SearchLogsResp)(nil),              // 33: openim.third.SearchLogsResp
 	nil,                                 // 34: openim.third.AccessURLReq.QueryEntry
 	nil,                                 // 35: openim.third.InitiateFormDataResp.FormDataEntry
-	(*contactws.RequestPagination)(nil), // 36: openim.contactws.RequestPagination
+	(*sdkws.RequestPagination)(nil),     // 36: openim.contactws.RequestPagination
 }
 var file_third_third_proto_depIdxs = []int32{
 	0,  // 0: openim.third.SignPart.query:type_name -> openim.third.KeyValues

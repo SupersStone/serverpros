@@ -7,7 +7,7 @@
 package rtc
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -22,10 +22,10 @@ const (
 )
 
 type ParticipantMetaData struct {
-	state           protoimpl.MessageState         `protogen:"open.v1"`
-	GroupInfo       *contactws.GroupInfo           `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
-	GroupMemberInfo *contactws.GroupMemberFullInfo `protobuf:"bytes,2,opt,name=groupMemberInfo,proto3" json:"groupMemberInfo"`
-	UserInfo        *contactws.PublicUserInfo      `protobuf:"bytes,3,opt,name=userInfo,proto3" json:"userInfo"`
+	state           protoimpl.MessageState     `protogen:"open.v1"`
+	GroupInfo       *sdkws.GroupInfo           `protobuf:"bytes,1,opt,name=groupInfo,proto3" json:"groupInfo"`
+	GroupMemberInfo *sdkws.GroupMemberFullInfo `protobuf:"bytes,2,opt,name=groupMemberInfo,proto3" json:"groupMemberInfo"`
+	UserInfo        *sdkws.PublicUserInfo      `protobuf:"bytes,3,opt,name=userInfo,proto3" json:"userInfo"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -60,21 +60,21 @@ func (*ParticipantMetaData) Descriptor() ([]byte, []int) {
 	return file_rtc_rtc_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ParticipantMetaData) GetGroupInfo() *contactws.GroupInfo {
+func (x *ParticipantMetaData) GetGroupInfo() *sdkws.GroupInfo {
 	if x != nil {
 		return x.GroupInfo
 	}
 	return nil
 }
 
-func (x *ParticipantMetaData) GetGroupMemberInfo() *contactws.GroupMemberFullInfo {
+func (x *ParticipantMetaData) GetGroupMemberInfo() *sdkws.GroupMemberFullInfo {
 	if x != nil {
 		return x.GroupMemberInfo
 	}
 	return nil
 }
 
-func (x *ParticipantMetaData) GetUserInfo() *contactws.PublicUserInfo {
+func (x *ParticipantMetaData) GetUserInfo() *sdkws.PublicUserInfo {
 	if x != nil {
 		return x.UserInfo
 	}
@@ -790,11 +790,11 @@ func (x *InvitationInfo) GetBusyLineUserIDList() []string {
 }
 
 type SignalInviteReq struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation      *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
-	Participant     *ParticipantMetaData       `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
-	UserID          string                     `protobuf:"bytes,4,opt,name=userID,proto3" json:"userID"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Invitation      *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	Participant     *ParticipantMetaData   `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
+	UserID          string                 `protobuf:"bytes,4,opt,name=userID,proto3" json:"userID"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -836,7 +836,7 @@ func (x *SignalInviteReq) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *SignalInviteReq) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *SignalInviteReq) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -926,11 +926,11 @@ func (x *SignalInviteResp) GetBusyLineUserIDList() []string {
 }
 
 type SignalInviteInGroupReq struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation      *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
-	Participant     *ParticipantMetaData       `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
-	UserID          string                     `protobuf:"bytes,4,opt,name=userID,proto3" json:"userID"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Invitation      *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	Participant     *ParticipantMetaData   `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
+	UserID          string                 `protobuf:"bytes,4,opt,name=userID,proto3" json:"userID"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -972,7 +972,7 @@ func (x *SignalInviteInGroupReq) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *SignalInviteInGroupReq) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *SignalInviteInGroupReq) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -1062,11 +1062,11 @@ func (x *SignalInviteInGroupResp) GetBusyLineUserIDList() []string {
 }
 
 type SignalCancelReq struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation      *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
-	Participant     *ParticipantMetaData       `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
-	UserID          string                     `protobuf:"bytes,4,opt,name=userID,proto3" json:"userID"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Invitation      *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	Participant     *ParticipantMetaData   `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
+	UserID          string                 `protobuf:"bytes,4,opt,name=userID,proto3" json:"userID"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1108,7 +1108,7 @@ func (x *SignalCancelReq) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *SignalCancelReq) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *SignalCancelReq) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -1166,12 +1166,12 @@ func (*SignalCancelResp) Descriptor() ([]byte, []int) {
 }
 
 type SignalAcceptReq struct {
-	state            protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation       *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo  *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
-	Participant      *ParticipantMetaData       `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
-	OpUserPlatformID int32                      `protobuf:"varint,4,opt,name=opUserPlatformID,proto3" json:"opUserPlatformID"`
-	UserID           string                     `protobuf:"bytes,5,opt,name=userID,proto3" json:"userID"`
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Invitation       *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo  *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	Participant      *ParticipantMetaData   `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
+	OpUserPlatformID int32                  `protobuf:"varint,4,opt,name=opUserPlatformID,proto3" json:"opUserPlatformID"`
+	UserID           string                 `protobuf:"bytes,5,opt,name=userID,proto3" json:"userID"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1213,7 +1213,7 @@ func (x *SignalAcceptReq) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *SignalAcceptReq) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *SignalAcceptReq) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -1302,10 +1302,10 @@ func (x *SignalAcceptResp) GetLiveURL() string {
 }
 
 type SignalHungUpReq struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation      *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
-	UserID          string                     `protobuf:"bytes,3,opt,name=userID,proto3" json:"userID"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Invitation      *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	UserID          string                 `protobuf:"bytes,3,opt,name=userID,proto3" json:"userID"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1347,7 +1347,7 @@ func (x *SignalHungUpReq) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *SignalHungUpReq) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *SignalHungUpReq) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -1398,12 +1398,12 @@ func (*SignalHungUpResp) Descriptor() ([]byte, []int) {
 }
 
 type SignalRejectReq struct {
-	state            protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation       *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo  *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
-	Participant      *ParticipantMetaData       `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
-	OpUserPlatformID int32                      `protobuf:"varint,4,opt,name=opUserPlatformID,proto3" json:"opUserPlatformID"`
-	UserID           string                     `protobuf:"bytes,5,opt,name=userID,proto3" json:"userID"`
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Invitation       *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo  *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	Participant      *ParticipantMetaData   `protobuf:"bytes,3,opt,name=participant,proto3" json:"participant"`
+	OpUserPlatformID int32                  `protobuf:"varint,4,opt,name=opUserPlatformID,proto3" json:"opUserPlatformID"`
+	UserID           string                 `protobuf:"bytes,5,opt,name=userID,proto3" json:"userID"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1445,7 +1445,7 @@ func (x *SignalRejectReq) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *SignalRejectReq) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *SignalRejectReq) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -2066,9 +2066,9 @@ func (x *GetSignalInvitationInfoReq) GetRoomID() string {
 }
 
 type GetSignalInvitationInfoResp struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	InvitationInfo  *InvitationInfo            `protobuf:"bytes,1,opt,name=invitationInfo,proto3" json:"invitationInfo"`
-	OfflinePushInfo *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	InvitationInfo  *InvitationInfo        `protobuf:"bytes,1,opt,name=invitationInfo,proto3" json:"invitationInfo"`
+	OfflinePushInfo *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -2110,7 +2110,7 @@ func (x *GetSignalInvitationInfoResp) GetInvitationInfo() *InvitationInfo {
 	return nil
 }
 
-func (x *GetSignalInvitationInfoResp) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *GetSignalInvitationInfoResp) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -2162,9 +2162,9 @@ func (x *GetSignalInvitationInfoStartAppReq) GetUserID() string {
 }
 
 type GetSignalInvitationInfoStartAppResp struct {
-	state           protoimpl.MessageState     `protogen:"open.v1"`
-	Invitation      *InvitationInfo            `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
-	OfflinePushInfo *contactws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Invitation      *InvitationInfo        `protobuf:"bytes,1,opt,name=invitation,proto3" json:"invitation"`
+	OfflinePushInfo *sdkws.OfflinePushInfo `protobuf:"bytes,2,opt,name=offlinePushInfo,proto3" json:"offlinePushInfo"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -2206,7 +2206,7 @@ func (x *GetSignalInvitationInfoStartAppResp) GetInvitation() *InvitationInfo {
 	return nil
 }
 
-func (x *GetSignalInvitationInfoStartAppResp) GetOfflinePushInfo() *contactws.OfflinePushInfo {
+func (x *GetSignalInvitationInfoStartAppResp) GetOfflinePushInfo() *sdkws.OfflinePushInfo {
 	if x != nil {
 		return x.OfflinePushInfo
 	}
@@ -2474,14 +2474,14 @@ func (x *FileRecord) GetFileURL() string {
 }
 
 type GetSignalInvitationRecordsReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
-	SessionType   int32                        `protobuf:"varint,2,opt,name=sessionType,proto3" json:"sessionType"`
-	SendID        string                       `protobuf:"bytes,3,opt,name=sendID,proto3" json:"sendID"`
-	RecvID        string                       `protobuf:"bytes,4,opt,name=recvID,proto3" json:"recvID"`
-	StartTime     int64                        `protobuf:"varint,5,opt,name=startTime,proto3" json:"startTime"`
-	EndTime       int64                        `protobuf:"varint,6,opt,name=endTime,proto3" json:"endTime"`
-	JoinedUsers   []*contactws.UserInfo        `protobuf:"bytes,7,rep,name=JoinedUsers,proto3" json:"JoinedUsers"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	SessionType   int32                    `protobuf:"varint,2,opt,name=sessionType,proto3" json:"sessionType"`
+	SendID        string                   `protobuf:"bytes,3,opt,name=sendID,proto3" json:"sendID"`
+	RecvID        string                   `protobuf:"bytes,4,opt,name=recvID,proto3" json:"recvID"`
+	StartTime     int64                    `protobuf:"varint,5,opt,name=startTime,proto3" json:"startTime"`
+	EndTime       int64                    `protobuf:"varint,6,opt,name=endTime,proto3" json:"endTime"`
+	JoinedUsers   []*sdkws.UserInfo        `protobuf:"bytes,7,rep,name=JoinedUsers,proto3" json:"JoinedUsers"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2516,7 +2516,7 @@ func (*GetSignalInvitationRecordsReq) Descriptor() ([]byte, []int) {
 	return file_rtc_rtc_proto_rawDescGZIP(), []int{38}
 }
 
-func (x *GetSignalInvitationRecordsReq) GetPagination() *contactws.RequestPagination {
+func (x *GetSignalInvitationRecordsReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2558,7 +2558,7 @@ func (x *GetSignalInvitationRecordsReq) GetEndTime() int64 {
 	return 0
 }
 
-func (x *GetSignalInvitationRecordsReq) GetJoinedUsers() []*contactws.UserInfo {
+func (x *GetSignalInvitationRecordsReq) GetJoinedUsers() []*sdkws.UserInfo {
 	if x != nil {
 		return x.JoinedUsers
 	}
@@ -3240,12 +3240,12 @@ var file_rtc_rtc_proto_goTypes = []any{
 	(*GetSignalInvitationRecordsResp)(nil),         // 39: openim.rtc.GetSignalInvitationRecordsResp
 	(*DeleteSignalRecordsReq)(nil),                 // 40: openim.rtc.DeleteSignalRecordsReq
 	(*DeleteSignalRecordsResp)(nil),                // 41: openim.rtc.DeleteSignalRecordsResp
-	(*contactws.GroupInfo)(nil),                    // 42: openim.contactws.GroupInfo
-	(*contactws.GroupMemberFullInfo)(nil),          // 43: openim.contactws.GroupMemberFullInfo
-	(*contactws.PublicUserInfo)(nil),               // 44: openim.contactws.PublicUserInfo
-	(*contactws.OfflinePushInfo)(nil),              // 45: openim.contactws.OfflinePushInfo
-	(*contactws.RequestPagination)(nil),            // 46: openim.contactws.RequestPagination
-	(*contactws.UserInfo)(nil),                     // 47: openim.contactws.UserInfo
+	(*sdkws.GroupInfo)(nil),                        // 42: openim.contactws.GroupInfo
+	(*sdkws.GroupMemberFullInfo)(nil),              // 43: openim.contactws.GroupMemberFullInfo
+	(*sdkws.PublicUserInfo)(nil),                   // 44: openim.contactws.PublicUserInfo
+	(*sdkws.OfflinePushInfo)(nil),                  // 45: openim.contactws.OfflinePushInfo
+	(*sdkws.RequestPagination)(nil),                // 46: openim.contactws.RequestPagination
+	(*sdkws.UserInfo)(nil),                         // 47: openim.contactws.UserInfo
 }
 var file_rtc_rtc_proto_depIdxs = []int32{
 	42, // 0: openim.rtc.ParticipantMetaData.groupInfo:type_name -> openim.contactws.GroupInfo

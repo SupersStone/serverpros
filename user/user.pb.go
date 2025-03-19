@@ -21,8 +21,8 @@
 package user
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
 	conversation "github.com/SupersStone/serverpros/conversation"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	wrapperspb "github.com/SupersStone/serverpros/wrapperspb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -38,8 +38,8 @@ const (
 )
 
 type GetAllUserIDReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,7 +74,7 @@ func (*GetAllUserIDReq) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetAllUserIDReq) GetPagination() *contactws.RequestPagination {
+func (x *GetAllUserIDReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -267,7 +267,7 @@ func (x *GetDesignateUsersReq) GetUserIDs() []string {
 
 type GetDesignateUsersResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UsersInfo     []*contactws.UserInfo  `protobuf:"bytes,1,rep,name=usersInfo,proto3" json:"usersInfo"`
+	UsersInfo     []*sdkws.UserInfo      `protobuf:"bytes,1,rep,name=usersInfo,proto3" json:"usersInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -302,7 +302,7 @@ func (*GetDesignateUsersResp) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetDesignateUsersResp) GetUsersInfo() []*contactws.UserInfo {
+func (x *GetDesignateUsersResp) GetUsersInfo() []*sdkws.UserInfo {
 	if x != nil {
 		return x.UsersInfo
 	}
@@ -311,7 +311,7 @@ func (x *GetDesignateUsersResp) GetUsersInfo() []*contactws.UserInfo {
 
 type UpdateUserInfoReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserInfo      *contactws.UserInfo    `protobuf:"bytes,1,opt,name=userInfo,proto3" json:"userInfo"`
+	UserInfo      *sdkws.UserInfo        `protobuf:"bytes,1,opt,name=userInfo,proto3" json:"userInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -346,7 +346,7 @@ func (*UpdateUserInfoReq) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateUserInfoReq) GetUserInfo() *contactws.UserInfo {
+func (x *UpdateUserInfoReq) GetUserInfo() *sdkws.UserInfo {
 	if x != nil {
 		return x.UserInfo
 	}
@@ -390,8 +390,8 @@ func (*UpdateUserInfoResp) Descriptor() ([]byte, []int) {
 }
 
 type UpdateUserInfoExReq struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	UserInfo      *contactws.UserInfoWithEx `protobuf:"bytes,1,opt,name=userInfo,proto3" json:"userInfo"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserInfo      *sdkws.UserInfoWithEx  `protobuf:"bytes,1,opt,name=userInfo,proto3" json:"userInfo"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -426,7 +426,7 @@ func (*UpdateUserInfoExReq) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *UpdateUserInfoExReq) GetUserInfo() *contactws.UserInfoWithEx {
+func (x *UpdateUserInfoExReq) GetUserInfo() *sdkws.UserInfoWithEx {
 	if x != nil {
 		return x.UserInfo
 	}
@@ -1190,10 +1190,10 @@ func (x *BatchSetConversationsResp) GetFailed() []string {
 }
 
 type GetPaginationUsersReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
-	UserID        string                       `protobuf:"bytes,3,opt,name=userID,proto3" json:"userID"`
-	NickName      string                       `protobuf:"bytes,4,opt,name=nickName,proto3" json:"nickName"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination"`
+	UserID        string                   `protobuf:"bytes,3,opt,name=userID,proto3" json:"userID"`
+	NickName      string                   `protobuf:"bytes,4,opt,name=nickName,proto3" json:"nickName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1228,7 +1228,7 @@ func (*GetPaginationUsersReq) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{24}
 }
 
-func (x *GetPaginationUsersReq) GetPagination() *contactws.RequestPagination {
+func (x *GetPaginationUsersReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1252,7 +1252,7 @@ func (x *GetPaginationUsersReq) GetNickName() string {
 type GetPaginationUsersResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Total         int32                  `protobuf:"varint,1,opt,name=total,proto3" json:"total"`
-	Users         []*contactws.UserInfo  `protobuf:"bytes,2,rep,name=users,proto3" json:"users"`
+	Users         []*sdkws.UserInfo      `protobuf:"bytes,2,rep,name=users,proto3" json:"users"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1294,7 +1294,7 @@ func (x *GetPaginationUsersResp) GetTotal() int32 {
 	return 0
 }
 
-func (x *GetPaginationUsersResp) GetUsers() []*contactws.UserInfo {
+func (x *GetPaginationUsersResp) GetUsers() []*sdkws.UserInfo {
 	if x != nil {
 		return x.Users
 	}
@@ -1303,7 +1303,7 @@ func (x *GetPaginationUsersResp) GetUsers() []*contactws.UserInfo {
 
 type UserRegisterReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Users         []*contactws.UserInfo  `protobuf:"bytes,1,rep,name=users,proto3" json:"users"`
+	Users         []*sdkws.UserInfo      `protobuf:"bytes,1,rep,name=users,proto3" json:"users"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1338,7 +1338,7 @@ func (*UserRegisterReq) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{26}
 }
 
-func (x *UserRegisterReq) GetUsers() []*contactws.UserInfo {
+func (x *UserRegisterReq) GetUsers() []*sdkws.UserInfo {
 	if x != nil {
 		return x.Users
 	}
@@ -3062,9 +3062,9 @@ func (*UpdateNotificationAccountInfoResp) Descriptor() ([]byte, []int) {
 }
 
 type SearchNotificationAccountReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Keyword       string                       `protobuf:"bytes,1,opt,name=keyword,proto3" json:"keyword"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Keyword       string                   `protobuf:"bytes,1,opt,name=keyword,proto3" json:"keyword"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3106,7 +3106,7 @@ func (x *SearchNotificationAccountReq) GetKeyword() string {
 	return ""
 }
 
-func (x *SearchNotificationAccountReq) GetPagination() *contactws.RequestPagination {
+func (x *SearchNotificationAccountReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -3359,7 +3359,7 @@ func (x *SortQueryReq) GetUserIDName() map[string]string {
 
 type SortQueryResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Users         []*contactws.UserInfo  `protobuf:"bytes,2,rep,name=users,proto3" json:"users"`
+	Users         []*sdkws.UserInfo      `protobuf:"bytes,2,rep,name=users,proto3" json:"users"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3394,7 +3394,7 @@ func (*SortQueryResp) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{66}
 }
 
-func (x *SortQueryResp) GetUsers() []*contactws.UserInfo {
+func (x *SortQueryResp) GetUsers() []*sdkws.UserInfo {
 	if x != nil {
 		return x.Users
 	}
@@ -4207,9 +4207,9 @@ var file_user_user_proto_goTypes = []any{
 	(*AccountCheckRespSingleUserStatus)(nil),  // 69: openim.user.accountCheckResp.singleUserStatus
 	nil,                                       // 70: openim.user.userRegisterCountResp.CountEntry
 	nil,                                       // 71: openim.user.sortQueryReq.UserIDNameEntry
-	(*contactws.RequestPagination)(nil),       // 72: openim.contactws.RequestPagination
-	(*contactws.UserInfo)(nil),                // 73: openim.contactws.UserInfo
-	(*contactws.UserInfoWithEx)(nil),          // 74: openim.contactws.UserInfoWithEx
+	(*sdkws.RequestPagination)(nil),           // 72: openim.contactws.RequestPagination
+	(*sdkws.UserInfo)(nil),                    // 73: openim.contactws.UserInfo
+	(*sdkws.UserInfoWithEx)(nil),              // 74: openim.contactws.UserInfoWithEx
 	(*conversation.Conversation)(nil),         // 75: openim.conversation.Conversation
 	(*wrapperspb.StringValue)(nil),            // 76: openim.protobuf.StringValue
 }

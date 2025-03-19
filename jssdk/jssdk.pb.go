@@ -21,9 +21,9 @@
 package jssdk
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
 	conversation "github.com/SupersStone/serverpros/conversation"
 	relation "github.com/SupersStone/serverpros/relation"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -40,10 +40,10 @@ const (
 type ConversationMsg struct {
 	state         protoimpl.MessageState     `protogen:"open.v1"`
 	Conversation  *conversation.Conversation `protobuf:"bytes,1,opt,name=conversation,proto3" json:"conversation"`
-	LastMsg       *contactws.MsgData         `protobuf:"bytes,2,opt,name=lastMsg,proto3" json:"lastMsg"`
-	User          *contactws.UserInfo        `protobuf:"bytes,3,opt,name=user,proto3" json:"user"`
+	LastMsg       *sdkws.MsgData             `protobuf:"bytes,2,opt,name=lastMsg,proto3" json:"lastMsg"`
+	User          *sdkws.UserInfo            `protobuf:"bytes,3,opt,name=user,proto3" json:"user"`
 	Friend        *relation.FriendInfoOnly   `protobuf:"bytes,4,opt,name=friend,proto3" json:"friend"`
-	Group         *contactws.GroupInfo       `protobuf:"bytes,5,opt,name=group,proto3" json:"group"`
+	Group         *sdkws.GroupInfo           `protobuf:"bytes,5,opt,name=group,proto3" json:"group"`
 	MaxSeq        int64                      `protobuf:"varint,6,opt,name=maxSeq,proto3" json:"maxSeq"`
 	ReadSeq       int64                      `protobuf:"varint,7,opt,name=readSeq,proto3" json:"readSeq"`
 	unknownFields protoimpl.UnknownFields
@@ -87,14 +87,14 @@ func (x *ConversationMsg) GetConversation() *conversation.Conversation {
 	return nil
 }
 
-func (x *ConversationMsg) GetLastMsg() *contactws.MsgData {
+func (x *ConversationMsg) GetLastMsg() *sdkws.MsgData {
 	if x != nil {
 		return x.LastMsg
 	}
 	return nil
 }
 
-func (x *ConversationMsg) GetUser() *contactws.UserInfo {
+func (x *ConversationMsg) GetUser() *sdkws.UserInfo {
 	if x != nil {
 		return x.User
 	}
@@ -108,7 +108,7 @@ func (x *ConversationMsg) GetFriend() *relation.FriendInfoOnly {
 	return nil
 }
 
-func (x *ConversationMsg) GetGroup() *contactws.GroupInfo {
+func (x *ConversationMsg) GetGroup() *sdkws.GroupInfo {
 	if x != nil {
 		return x.Group
 	}
@@ -422,10 +422,10 @@ var file_jssdk_jssdk_proto_goTypes = []any{
 	(*GetConversationsReq)(nil),        // 3: openim.jssdk.GetConversationsReq
 	(*GetConversationsResp)(nil),       // 4: openim.jssdk.GetConversationsResp
 	(*conversation.Conversation)(nil),  // 5: openim.conversation.Conversation
-	(*contactws.MsgData)(nil),          // 6: openim.contactws.MsgData
-	(*contactws.UserInfo)(nil),         // 7: openim.contactws.UserInfo
+	(*sdkws.MsgData)(nil),              // 6: openim.contactws.MsgData
+	(*sdkws.UserInfo)(nil),             // 7: openim.contactws.UserInfo
 	(*relation.FriendInfoOnly)(nil),    // 8: openim.relation.FriendInfoOnly
-	(*contactws.GroupInfo)(nil),        // 9: openim.contactws.GroupInfo
+	(*sdkws.GroupInfo)(nil),            // 9: openim.contactws.GroupInfo
 }
 var file_jssdk_jssdk_proto_depIdxs = []int32{
 	5, // 0: openim.jssdk.ConversationMsg.conversation:type_name -> openim.conversation.Conversation

@@ -21,8 +21,8 @@
 package msg
 
 import (
-	contactws "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws"
 	conversation "github.com/SupersStone/serverpros/conversation"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -39,7 +39,7 @@ const (
 type MsgDataToMQ struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,2,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,2,opt,name=msgData,proto3" json:"msgData"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -81,7 +81,7 @@ func (x *MsgDataToMQ) GetToken() string {
 	return ""
 }
 
-func (x *MsgDataToMQ) GetMsgData() *contactws.MsgData {
+func (x *MsgDataToMQ) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -90,7 +90,7 @@ func (x *MsgDataToMQ) GetMsgData() *contactws.MsgData {
 
 type MsgDataToDB struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -125,7 +125,7 @@ func (*MsgDataToDB) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *MsgDataToDB) GetMsgData() *contactws.MsgData {
+func (x *MsgDataToDB) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -134,7 +134,7 @@ func (x *MsgDataToDB) GetMsgData() *contactws.MsgData {
 
 type PushMsgDataToMQ struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	MsgData        *contactws.MsgData     `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
+	MsgData        *sdkws.MsgData         `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
 	ConversationID string                 `protobuf:"bytes,2,opt,name=conversationID,proto3" json:"conversationID"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
@@ -170,7 +170,7 @@ func (*PushMsgDataToMQ) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *PushMsgDataToMQ) GetMsgData() *contactws.MsgData {
+func (x *PushMsgDataToMQ) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -188,7 +188,7 @@ type MsgDataToMongoByMQ struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	LastSeq        int64                  `protobuf:"varint,1,opt,name=lastSeq,proto3" json:"lastSeq"`
 	ConversationID string                 `protobuf:"bytes,2,opt,name=conversationID,proto3" json:"conversationID"`
-	MsgData        []*contactws.MsgData   `protobuf:"bytes,3,rep,name=msgData,proto3" json:"msgData"`
+	MsgData        []*sdkws.MsgData       `protobuf:"bytes,3,rep,name=msgData,proto3" json:"msgData"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -237,7 +237,7 @@ func (x *MsgDataToMongoByMQ) GetConversationID() string {
 	return ""
 }
 
-func (x *MsgDataToMongoByMQ) GetMsgData() []*contactws.MsgData {
+func (x *MsgDataToMongoByMQ) GetMsgData() []*sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -342,7 +342,7 @@ func (x *GetMaxAndMinSeqResp) GetMinSeq() int64 {
 
 type SendMsgReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,3,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,3,opt,name=msgData,proto3" json:"msgData"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -377,7 +377,7 @@ func (*SendMsgReq) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *SendMsgReq) GetMsgData() *contactws.MsgData {
+func (x *SendMsgReq) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -606,7 +606,7 @@ func (x *GetSendMsgStatusResp) GetStatus() int32 {
 
 type MsgDataToModifyByMQ struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
-	Messages       []*contactws.MsgData   `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages"`
+	Messages       []*sdkws.MsgData       `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages"`
 	ConversationID string                 `protobuf:"bytes,2,opt,name=conversationID,proto3" json:"conversationID"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
@@ -642,7 +642,7 @@ func (*MsgDataToModifyByMQ) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *MsgDataToModifyByMQ) GetMessages() []*contactws.MsgData {
+func (x *MsgDataToModifyByMQ) GetMessages() []*sdkws.MsgData {
 	if x != nil {
 		return x.Messages
 	}
@@ -1837,8 +1837,8 @@ func (x *GetMsgByConversationIDsReq) GetMaxSeqs() map[string]int64 {
 }
 
 type GetMsgByConversationIDsResp struct {
-	state         protoimpl.MessageState        `protogen:"open.v1"`
-	MsgDatas      map[string]*contactws.MsgData `protobuf:"bytes,1,rep,name=msgDatas,proto3" json:"msgDatas,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state         protoimpl.MessageState    `protogen:"open.v1"`
+	MsgDatas      map[string]*sdkws.MsgData `protobuf:"bytes,1,rep,name=msgDatas,proto3" json:"msgDatas,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1873,7 +1873,7 @@ func (*GetMsgByConversationIDsResp) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{38}
 }
 
-func (x *GetMsgByConversationIDsResp) GetMsgDatas() map[string]*contactws.MsgData {
+func (x *GetMsgByConversationIDsResp) GetMsgDatas() map[string]*sdkws.MsgData {
 	if x != nil {
 		return x.MsgDatas
 	}
@@ -2125,12 +2125,12 @@ func (x *GetConversationsHasReadAndMaxSeqResp) GetSeqs() map[string]*Seqs {
 }
 
 type GetActiveUserReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Start         int64                        `protobuf:"varint,1,opt,name=start,proto3" json:"start"`
-	End           int64                        `protobuf:"varint,2,opt,name=end,proto3" json:"end"`
-	Ase           bool                         `protobuf:"varint,3,opt,name=ase,proto3" json:"ase"`
-	Group         bool                         `protobuf:"varint,4,opt,name=group,proto3" json:"group"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,5,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Start         int64                    `protobuf:"varint,1,opt,name=start,proto3" json:"start"`
+	End           int64                    `protobuf:"varint,2,opt,name=end,proto3" json:"end"`
+	Ase           bool                     `protobuf:"varint,3,opt,name=ase,proto3" json:"ase"`
+	Group         bool                     `protobuf:"varint,4,opt,name=group,proto3" json:"group"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,5,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2193,7 +2193,7 @@ func (x *GetActiveUserReq) GetGroup() bool {
 	return false
 }
 
-func (x *GetActiveUserReq) GetPagination() *contactws.RequestPagination {
+func (x *GetActiveUserReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2202,7 +2202,7 @@ func (x *GetActiveUserReq) GetPagination() *contactws.RequestPagination {
 
 type ActiveUser struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	User          *contactws.UserInfo    `protobuf:"bytes,1,opt,name=user,proto3" json:"user"`
+	User          *sdkws.UserInfo        `protobuf:"bytes,1,opt,name=user,proto3" json:"user"`
 	Count         int64                  `protobuf:"varint,2,opt,name=count,proto3" json:"count"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2238,7 +2238,7 @@ func (*ActiveUser) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{45}
 }
 
-func (x *ActiveUser) GetUser() *contactws.UserInfo {
+func (x *ActiveUser) GetUser() *sdkws.UserInfo {
 	if x != nil {
 		return x.User
 	}
@@ -2321,11 +2321,11 @@ func (x *GetActiveUserResp) GetUsers() []*ActiveUser {
 }
 
 type GetActiveGroupReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Start         int64                        `protobuf:"varint,1,opt,name=start,proto3" json:"start"`
-	End           int64                        `protobuf:"varint,2,opt,name=end,proto3" json:"end"`
-	Ase           bool                         `protobuf:"varint,3,opt,name=ase,proto3" json:"ase"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Start         int64                    `protobuf:"varint,1,opt,name=start,proto3" json:"start"`
+	End           int64                    `protobuf:"varint,2,opt,name=end,proto3" json:"end"`
+	Ase           bool                     `protobuf:"varint,3,opt,name=ase,proto3" json:"ase"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2381,7 +2381,7 @@ func (x *GetActiveGroupReq) GetAse() bool {
 	return false
 }
 
-func (x *GetActiveGroupReq) GetPagination() *contactws.RequestPagination {
+func (x *GetActiveGroupReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2390,7 +2390,7 @@ func (x *GetActiveGroupReq) GetPagination() *contactws.RequestPagination {
 
 type ActiveGroup struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Group         *contactws.GroupInfo   `protobuf:"bytes,1,opt,name=group,proto3" json:"group"`
+	Group         *sdkws.GroupInfo       `protobuf:"bytes,1,opt,name=group,proto3" json:"group"`
 	Count         int64                  `protobuf:"varint,2,opt,name=count,proto3" json:"count"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2426,7 +2426,7 @@ func (*ActiveGroup) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{48}
 }
 
-func (x *ActiveGroup) GetGroup() *contactws.GroupInfo {
+func (x *ActiveGroup) GetGroup() *sdkws.GroupInfo {
 	if x != nil {
 		return x.Group
 	}
@@ -2509,13 +2509,13 @@ func (x *GetActiveGroupResp) GetGroups() []*ActiveGroup {
 }
 
 type SearchMessageReq struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	SendID        string                       `protobuf:"bytes,1,opt,name=sendID,proto3" json:"sendID"` //发送者ID
-	RecvID        string                       `protobuf:"bytes,2,opt,name=recvID,proto3" json:"recvID"` //接收者ID
-	ContentType   int32                        `protobuf:"varint,3,opt,name=contentType,proto3" json:"contentType"`
-	SendTime      string                       `protobuf:"bytes,4,opt,name=sendTime,proto3" json:"sendTime"`
-	SessionType   int32                        `protobuf:"varint,5,opt,name=sessionType,proto3" json:"sessionType"`
-	Pagination    *contactws.RequestPagination `protobuf:"bytes,6,opt,name=pagination,proto3" json:"pagination"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	SendID        string                   `protobuf:"bytes,1,opt,name=sendID,proto3" json:"sendID"` //发送者ID
+	RecvID        string                   `protobuf:"bytes,2,opt,name=recvID,proto3" json:"recvID"` //接收者ID
+	ContentType   int32                    `protobuf:"varint,3,opt,name=contentType,proto3" json:"contentType"`
+	SendTime      string                   `protobuf:"bytes,4,opt,name=sendTime,proto3" json:"sendTime"`
+	SessionType   int32                    `protobuf:"varint,5,opt,name=sessionType,proto3" json:"sessionType"`
+	Pagination    *sdkws.RequestPagination `protobuf:"bytes,6,opt,name=pagination,proto3" json:"pagination"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2585,7 +2585,7 @@ func (x *SearchMessageReq) GetSessionType() int32 {
 	return 0
 }
 
-func (x *SearchMessageReq) GetPagination() *contactws.RequestPagination {
+func (x *SearchMessageReq) GetPagination() *sdkws.RequestPagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2646,7 +2646,7 @@ func (x *SearchChatLog) GetIsRevoked() bool {
 
 type SearchedMsgData struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,1,opt,name=msgData,proto3" json:"msgData"`
 	IsRevoked     bool                   `protobuf:"varint,2,opt,name=isRevoked,proto3" json:"isRevoked"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2682,7 +2682,7 @@ func (*SearchedMsgData) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{52}
 }
 
-func (x *SearchedMsgData) GetMsgData() *contactws.MsgData {
+func (x *SearchedMsgData) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -2971,7 +2971,7 @@ func (x *ChatLog) GetGroupType() int32 {
 type BatchSendMessageReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RecvIDList    []string               `protobuf:"bytes,1,rep,name=recvIDList,proto3" json:"recvIDList"`
-	MsgData       *contactws.MsgData     `protobuf:"bytes,2,opt,name=msgData,proto3" json:"msgData"`
+	MsgData       *sdkws.MsgData         `protobuf:"bytes,2,opt,name=msgData,proto3" json:"msgData"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3013,7 +3013,7 @@ func (x *BatchSendMessageReq) GetRecvIDList() []string {
 	return nil
 }
 
-func (x *BatchSendMessageReq) GetMsgData() *contactws.MsgData {
+func (x *BatchSendMessageReq) GetMsgData() *sdkws.MsgData {
 	if x != nil {
 		return x.MsgData
 	}
@@ -3497,9 +3497,9 @@ func (x *GetSeqMessageReq) GetConversations() []*ConversationSeqs {
 }
 
 type GetSeqMessageResp struct {
-	state            protoimpl.MessageState         `protogen:"open.v1"`
-	Msgs             map[string]*contactws.PullMsgs `protobuf:"bytes,1,rep,name=msgs,proto3" json:"msgs,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	NotificationMsgs map[string]*contactws.PullMsgs `protobuf:"bytes,2,rep,name=notificationMsgs,proto3" json:"notificationMsgs,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state            protoimpl.MessageState     `protogen:"open.v1"`
+	Msgs             map[string]*sdkws.PullMsgs `protobuf:"bytes,1,rep,name=msgs,proto3" json:"msgs,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	NotificationMsgs map[string]*sdkws.PullMsgs `protobuf:"bytes,2,rep,name=notificationMsgs,proto3" json:"notificationMsgs,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -3534,14 +3534,14 @@ func (*GetSeqMessageResp) Descriptor() ([]byte, []int) {
 	return file_msg_msg_proto_rawDescGZIP(), []int{67}
 }
 
-func (x *GetSeqMessageResp) GetMsgs() map[string]*contactws.PullMsgs {
+func (x *GetSeqMessageResp) GetMsgs() map[string]*sdkws.PullMsgs {
 	if x != nil {
 		return x.Msgs
 	}
 	return nil
 }
 
-func (x *GetSeqMessageResp) GetNotificationMsgs() map[string]*contactws.PullMsgs {
+func (x *GetSeqMessageResp) GetNotificationMsgs() map[string]*sdkws.PullMsgs {
 	if x != nil {
 		return x.NotificationMsgs
 	}
@@ -4706,16 +4706,16 @@ var file_msg_msg_proto_goTypes = []any{
 	nil,                                          // 80: openim.msg.GetActiveGroupResp.DateCountEntry
 	nil,                                          // 81: openim.msg.GetSeqMessageResp.MsgsEntry
 	nil,                                          // 82: openim.msg.GetSeqMessageResp.NotificationMsgsEntry
-	(*contactws.MsgData)(nil),                    // 83: openim.contactws.MsgData
-	(*contactws.RequestPagination)(nil),          // 84: openim.contactws.RequestPagination
-	(*contactws.UserInfo)(nil),                   // 85: openim.contactws.UserInfo
-	(*contactws.GroupInfo)(nil),                  // 86: openim.contactws.GroupInfo
+	(*sdkws.MsgData)(nil),                        // 83: openim.contactws.MsgData
+	(*sdkws.RequestPagination)(nil),              // 84: openim.contactws.RequestPagination
+	(*sdkws.UserInfo)(nil),                       // 85: openim.contactws.UserInfo
+	(*sdkws.GroupInfo)(nil),                      // 86: openim.contactws.GroupInfo
 	(*conversation.Conversation)(nil),            // 87: openim.conversation.Conversation
-	(*contactws.PullMsgs)(nil),                   // 88: openim.contactws.PullMsgs
-	(*contactws.GetMaxSeqReq)(nil),               // 89: openim.contactws.GetMaxSeqReq
-	(*contactws.PullMessageBySeqsReq)(nil),       // 90: openim.contactws.PullMessageBySeqsReq
-	(*contactws.GetMaxSeqResp)(nil),              // 91: openim.contactws.GetMaxSeqResp
-	(*contactws.PullMessageBySeqsResp)(nil),      // 92: openim.contactws.PullMessageBySeqsResp
+	(*sdkws.PullMsgs)(nil),                       // 88: openim.contactws.PullMsgs
+	(*sdkws.GetMaxSeqReq)(nil),                   // 89: openim.contactws.GetMaxSeqReq
+	(*sdkws.PullMessageBySeqsReq)(nil),           // 90: openim.contactws.PullMessageBySeqsReq
+	(*sdkws.GetMaxSeqResp)(nil),                  // 91: openim.contactws.GetMaxSeqResp
+	(*sdkws.PullMessageBySeqsResp)(nil),          // 92: openim.contactws.PullMessageBySeqsResp
 }
 var file_msg_msg_proto_depIdxs = []int32{
 	83, // 0: openim.msg.MsgDataToMQ.msgData:type_name -> openim.contactws.MsgData

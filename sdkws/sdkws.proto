@@ -17,7 +17,7 @@ package openim.contactws;
 
 import "wrapperspb/wrapperspb.proto";
 
-option go_package = "github.com/SupersStone/open-im-server/v3/pkg/contact/contactws";
+option go_package = "github.com/SupersStone/serverpros/sdkws";
 
 ////////////////////////////////base///////////////////////////////
 
