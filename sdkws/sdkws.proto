@@ -209,6 +209,7 @@ message MsgData {
   repeated string atUserIDList = 21;
   string attachedInfo = 22;
   string ex = 23;
+  bool isBlock = 24;
 }
 message PushMessages {
   map<string, PullMsgs> msgs = 1;
