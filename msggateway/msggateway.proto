@@ -17,7 +17,7 @@ package openim.msggateway;
 
 import "sdkws/sdkws.proto";
 
-option go_package = "github.com/openimsdk/serverpros/msggateway";
+option go_package = "github.com/SupersStone/serverpros/msggateway";
 
 message OnlinePushMsgReq {
   sdkws.MsgData msgData = 1;

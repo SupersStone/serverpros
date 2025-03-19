@@ -22,8 +22,8 @@ package msg
 
 import (
 	context "context"
-	conversation "github.com/openimsdk/serverpros/conversation"
-	sdkws "github.com/openimsdk/serverpros/sdkws"
+	conversation "github.com/SupersStone/serverpros/conversation"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

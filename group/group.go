@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/openimsdk/serverpros/constant"
+	"github.com/SupersStone/serverpros/constant"
 )
 
 func (x *CreateGroupReq) Check() error {

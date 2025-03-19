@@ -14,5 +14,5 @@
 
 syntax = "proto3";
 package openim.statistics;
-option go_package = "github.com/openimsdk/serverpros/statistics";
+option go_package = "github.com/SupersStone/serverpros/statistics";
 

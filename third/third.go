@@ -16,7 +16,7 @@ package third
 
 import (
 	"errors"
-	"github.com/openimsdk/serverpros/constant"
+	"github.com/SupersStone/serverpros/constant"
 )
 
 func (x *FcmUpdateTokenReq) Check() error {

@@ -17,7 +17,7 @@ package openim.push;
 
 import "sdkws/sdkws.proto";
 
-option go_package = "github.com/openimsdk/serverpros/push";
+option go_package = "github.com/SupersStone/serverpros/push";
 
 message PushMsgReq {
   sdkws.MsgData msgData = 1;

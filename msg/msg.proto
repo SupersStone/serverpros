@@ -18,7 +18,7 @@ package openim.msg;
 import "conversation/conversation.proto";
 import "sdkws/sdkws.proto";
 
-option go_package = "github.com/openimsdk/serverpros/msg";
+option go_package = "github.com/SupersStone/serverpros/msg";
 
 message MsgDataToMQ {
   string token = 1;

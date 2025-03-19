@@ -17,7 +17,7 @@ package openim.third;
 
 import "sdkws/sdkws.proto";
 
-option go_package = "github.com/openimsdk/serverpros/third";
+option go_package = "github.com/SupersStone/serverpros/third";
 
 message KeyValues {
   string key = 1;

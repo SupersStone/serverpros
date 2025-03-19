@@ -22,7 +22,7 @@ package msggateway
 
 import (
 	context "context"
-	sdkws "github.com/openimsdk/serverpros/sdkws"
+	sdkws "github.com/SupersStone/serverpros/sdkws"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

@@ -6,7 +6,7 @@ set "PROTO_NAMES=auth conversation errinfo relation group jssdk msg msggateway p
 
 rem Loop through each element in the array
 for %%i in (%PROTO_NAMES%) do (
-    protoc --go_out=plugins=grpc:./%%i --go_opt=module=github.com/openimsdk/serverpros/%%i %%i/%%i.proto
+    protoc --go_out=plugins=grpc:./%%i --go_opt=module=github.com/SupersStone/serverpros/%%i %%i/%%i.proto
     if ERRORLEVEL 1 (
         echo error processing %%i.proto
         exit /b %ERRORLEVEL%

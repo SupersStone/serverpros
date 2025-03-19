@@ -1,4 +1,4 @@
-module github.com/openimsdk/serverpros
+module github.com/SupersStone/serverpros
 
 go 1.18
 

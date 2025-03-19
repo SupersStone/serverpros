@@ -18,8 +18,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/openimsdk/serverpros/constant"
-	"github.com/openimsdk/serverpros/util/datautil"
+	"github.com/SupersStone/serverpros/constant"
+	"github.com/SupersStone/serverpros/util/datautil"
 )
 
 func (x *GetAllUserIDReq) Check() error {

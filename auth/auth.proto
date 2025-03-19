@@ -15,7 +15,7 @@
 syntax = "proto3";
 package openim.auth;
 
-option go_package = "github.com/openimsdk/serverpros/auth";
+option go_package = "github.com/SupersStone/serverpros/auth";
 
 message getAdminTokenReq {
   string secret = 1;

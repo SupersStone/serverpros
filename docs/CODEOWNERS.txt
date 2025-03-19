@@ -1,1 +1,1 @@
-* @openimsdk/go-code-review
+* @SupersStone/go-code-review

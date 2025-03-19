@@ -20,7 +20,7 @@ import "relation/relation.proto";
 import "conversation/conversation.proto";
 //import "wrapperspb/wrapperspb.proto";
 
-option go_package = "github.com/openimsdk/serverpros/jssdk";
+option go_package = "github.com/SupersStone/serverpros/jssdk";
 
 message ConversationMsg {
   conversation.Conversation conversation = 1;

@@ -19,7 +19,7 @@ import "conversation/conversation.proto";
 import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
 
-option go_package = "github.com/openimsdk/serverpros/user";
+option go_package = "github.com/SupersStone/serverpros/user";
 
 message getAllUserIDReq {
   sdkws.RequestPagination pagination = 1;
